@@ -1,0 +1,68 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.14.2
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Cortex-M3, LUO, LIC=R4HV2-9SZ69-AWW2F-6CLIG-UWXZW-9R220
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.36.0.0
+Toolchain Path:  E:\KEIL5 MDK\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      UL2CM3.DLL V1.164.0.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+C:\Users\BigDog\Desktop\File\ELAB_NANO\project\stm32f103c8t6\ide\keil\Template.uvprojx
+Project File Date:  08/29/2026
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'E:\KEIL5 MDK\ARM\ARMCC\Bin'
+Build target 'Target 1'
+compiling main.c...
+..\..\usr\../../../elab/common/elab_std.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\usr\../../../elab/common/elab_def.h(18): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\usr\../../../elab/common/elab_common.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\usr\../../../elab/common/elab_log.h(50): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\usr\../../../elab/3rd/xfusion/xf_common/xf_list.h(89): warning:  #260-D: explicit type is missing ("int" assumed)
+  static inline void xf_list_init(xf_list_t *list)
+..\..\usr\../../../elab/3rd/xfusion/xf_common/xf_list.h(89): error:  #65: expected a ";"
+  static inline void xf_list_init(xf_list_t *list)
+..\..\usr\../../../elab/3rd/xfusion/xf_utils_log/xf_utils_log.h(61): warning:  #12-D: parsing restarts here after previous syntax error
+  xf_err_t xf_dump_mem(void *addr, size_t size, uint8_t flags_mask);
+..\..\usr\main.c(37): error:  #268: declaration may not appear after executable statement in block
+    static char buff[1024] = "hello world\r\n";
+..\..\usr\main.c(46): warning:  #223-D: function "xf_dump_mem" declared implicitly
+      XF_LOG_BUFFER_HEX(data,sizeof(data));
+..\..\usr\main.c(37): warning:  #177-D: variable "buff"  was declared but never referenced
+    static char buff[1024] = "hello world\r\n";
+..\..\usr\main.c: 8 warnings, 2 errors
+compiling bsp.c...
+..\..\usr\bsp\debug_uart.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\usr\bsp\bsp.c(4): error:  #5: cannot open source input file "SEGGER_RTT.h": No such file or directory
+  #include "SEGGER_RTT.h"
+..\..\usr\bsp\bsp.c: 1 warning, 1 error
+".\Objects\Template.axf" - 3 Error(s), 9 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  C:\Users\BigDog\Desktop\File\ELAB_NANO\project\stm32f103c8t6\ide\keil\RTE
+  E:\KEIL5 MDK\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Target not created.
+</pre>
+</body>
+</html>

@@ -1,0 +1,20 @@
+--cpu Cortex-M3
+".\objects\main.o"
+".\objects\stm32f1xx_hal_msp.o"
+".\objects\stm32f1xx_it.o"
+".\objects\system_stm32f1xx.o"
+".\objects\startup_stm32f103xb.o"
+".\objects\bsp.o"
+".\objects\stm32f1xx_hal.o"
+".\objects\stm32f1xx_hal_dma.o"
+".\objects\stm32f1xx_hal_gpio.o"
+".\objects\stm32f1xx_hal_gpio_ex.o"
+".\objects\stm32f1xx_hal_rcc.o"
+".\objects\stm32f1xx_hal_rcc_ex.o"
+".\objects\stm32f1xx_hal_uart.o"
+".\objects\stm32f1xx_hal_usart.o"
+".\objects\stm32f1xx_hal_cortex.o"
+--strict --scatter ".\Objects\Template.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\Template.map" -o .\Objects\Template.axf
