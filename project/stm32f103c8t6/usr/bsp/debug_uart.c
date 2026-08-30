@@ -21,11 +21,11 @@ static elib_queue_t queue_tx;
 static uint8_t buffer_tx[ELAB_DEBUG_UART_BUFFER_TX];
 static uint8_t byte_recv;
 
-void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
+void HAL_UART_MspInit(UART_HandleTypeDef* huart)
 {
 
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(uartHandle->Instance == USARTx)
+  if(huart->Instance == USARTx)
   {
 
     /* USART1 clock enable */
