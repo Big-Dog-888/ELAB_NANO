@@ -1,0 +1,29 @@
+.\objects\bsp.o: ..\..\usr\bsp\bsp.c
+.\objects\bsp.o: ..\..\usr\bsp\bsp.h
+.\objects\bsp.o: ..\..\usr\bsp\debug_uart.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_conf.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Include\core_cm3.h
+.\objects\bsp.o: E:\KEIL5 MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Include\cmsis_version.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Include\cmsis_compiler.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Include\cmsis_armcc.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\Legacy/stm32_hal_legacy.h
+.\objects\bsp.o: E:\KEIL5 MDK\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_exti.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h
+.\objects\bsp.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h

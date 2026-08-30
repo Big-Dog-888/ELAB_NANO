@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Users/BigDog/Desktop/File/ELAB_NANO/project/stm32f103c8t6/usr/bsp",
+                "C:/Users/BigDog/Desktop/File/ELAB_NANO/project/stm32f103c8t6/usr/core",
+                "C:/Users/BigDog/Desktop/File/ELAB_NANO/mcu/stm32f103c8t6/STM32F1xx_HAL_Driver/Inc",
+                "C:/Users/BigDog/Desktop/File/ELAB_NANO/mcu/stm32f103c8t6/CMSIS/Include",
+                "C:/Users/BigDog/Desktop/File/ELAB_NANO/mcu/stm32f103c8t6/CMSIS/Device/ST/STM32F1xx/Include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "windows-gcc-x64",
+            "configurationProvider": "cl.eide"
+        }
+    ],
+    "version": 4
+}

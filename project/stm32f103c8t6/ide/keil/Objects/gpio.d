@@ -1,0 +1,29 @@
+.\objects\gpio.o: ..\..\usr\bsp\gpio.c
+.\objects\gpio.o: ..\..\usr\bsp\gpio.h
+.\objects\gpio.o: ..\..\usr\core\main.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_conf.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Include\core_cm3.h
+.\objects\gpio.o: E:\KEIL5 MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Include\cmsis_version.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Include\cmsis_compiler.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Include\cmsis_armcc.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\Legacy/stm32_hal_legacy.h
+.\objects\gpio.o: E:\KEIL5 MDK\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_exti.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h
+.\objects\gpio.o: ..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h
