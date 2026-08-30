@@ -1,6 +1,6 @@
 #include "bsp.h"
 #include "stm32f1xx_hal.h"
-#include "SEGGER_RTT.h"
+// #include "SEGGER_RTT.h"
 /**
   * @brief  This function is executed in case of error occurrence.
   * @retval None
@@ -64,13 +64,13 @@ uint32_t elab_time(void)
  void BSP_Init(void)
  {
   HAL_Init();
-  SEGGER_RTT_Init();
+  // SEGGER_RTT_Init();
   
   SystemClock_Config();
   elab_debug_uart_init(115200);
 
-  static unsigned char upBuffer[1024];
-  static unsigned char downBuffer[1024];
-  SEGGER_RTT_ConfigUpBuffer(0, "up", upBuffer, sizeof(upBuffer), SEGGER_RTT_MODE_NO_BLOCK_SKIP);
-  SEGGER_RTT_ConfigDownBuffer(0, "down", downBuffer, sizeof(downBuffer), SEGGER_RTT_MODE_NO_BLOCK_SKIP);
+  // static unsigned char upBuffer[1024];
+  // static unsigned char downBuffer[1024];
+  // SEGGER_RTT_ConfigUpBuffer(0, "up", upBuffer, sizeof(upBuffer), SEGGER_RTT_MODE_NO_BLOCK_SKIP);
+  // SEGGER_RTT_ConfigDownBuffer(0, "down", downBuffer, sizeof(downBuffer), SEGGER_RTT_MODE_NO_BLOCK_SKIP);
  }
