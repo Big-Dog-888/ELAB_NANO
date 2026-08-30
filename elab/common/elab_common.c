@@ -13,3 +13,22 @@ ELAB_WEAK uint32_t elab_time_ms(void)
     //return osKernelGetTickCount();
 #endif
 }
+
+#if !defined(__linux__) && !defined(_WIN32)
+ELAB_WEAK
+#endif
+void *elab_malloc(uint32_t size)
+{
+    return malloc(size);
+}
+
+#if !defined(__linux__) && !defined(_WIN32)
+ELAB_WEAK
+#endif
+void elab_free(void *memory)
+{
+    if (memory != NULL)
+    {
+        free(memory);
+    }
+}

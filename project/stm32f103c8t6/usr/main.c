@@ -59,7 +59,7 @@ int main(void)
 {
   BSP_Init();
   example_obj_t* obj = NULL;
-  uint8_t data = 1000;
+  uint8_t data = 255;
   // static char buff[1024] = "hello world\r\n";
   while (1)
   {

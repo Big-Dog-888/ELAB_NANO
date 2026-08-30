@@ -52,11 +52,35 @@ virtualFolder:
                 - path: ../../../../elab/3rd/RTT/SEGGER_RTT.c
                 - path: ../../../../elab/3rd/RTT/SEGGER_RTT_printf.c
               folders: []
+            - name: list
+              files:
+                - path: ../../../../elab/3rd/list/list.c
+                - path: ../../../../elab/3rd/list/list_iterator.c
+                - path: ../../../../elab/3rd/list/list_node.c
+              folders: []
+            - name: lwrb
+              files:
+                - path: ../../../../elab/3rd/lwrb/lwrb.c
+              folders: []
+            - name: ringbuf
+              files:
+                - path: ../../../../elab/3rd/ringbuf/ringbuf.c
+              folders: []
+            - name: state_machine
+              files:
+                - path: ../../../../elab/3rd/state_machine/state_machine.c
+              folders: []
         - name: common
           files:
             - path: ../../../../elab/common/elab_common.c
             - path: ../../../../elab/common/elab_log.c
             - path: ../../../../elab/common/elab_assert.c
+          folders: []
+        - name: elib
+          files:
+            - path: ../../../../elab/elib/elib_crc.c
+            - path: ../../../../elab/elib/elib_queue.c
+            - path: ../../../../elab/elib/hash_table.c
           folders: []
 dependenceList: []
 outDir: build
@@ -79,6 +103,11 @@ targets:
         - ../../../../elab/3rd/xfusion
         - ../../../../elab/3rd/xfusion/xf_utils_log
         - ../../../../elab/3rd/RTT
+        - ../../../../elab/elib
+        - ../../../../elab/3rd/list
+        - ../../../../elab/3rd/lwrb
+        - ../../../../elab/3rd/ringbuf
+        - ../../../../elab/3rd/state_machine
       libList: []
     excludeList: []
     settings:
