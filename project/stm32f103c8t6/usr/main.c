@@ -294,7 +294,7 @@ int main(void)
 {
     // -------- BSP 初始化 --------
     BSP_Init();
-    
+    HAL_Delay(3000);
     // -------- 启动信息 --------
     printf("\r\n\r\n========================================\r\n");
     printf("eLab Debug UART Test with Assert\r\n");
