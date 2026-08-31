@@ -56,6 +56,7 @@ static void wait_queue_empty(void)
 // ============================================
 void test_send(void)
 {
+
     int32_t ret;
     
     // 测试前清空队列
@@ -67,6 +68,7 @@ void test_send(void)
     // 测试1.1：发送普通字符串
     uint8_t str[] = "Hello eLab!\r\n";
     ret = elab_debug_uart_send(str, sizeof(str) - 1);
+
     elab_assert(ret >= 0);
     printf("Send string: ret = %d (expected %d)\r\n", ret, (int)(sizeof(str) - 1));
     
@@ -74,11 +76,11 @@ void test_send(void)
     
     // 测试1.2：发送空数据（边界测试）
     ret = elab_debug_uart_send(NULL, 0);
+    printf("DEBUG: ret = %d\r\n", ret);  // ★ 加这行
     elab_assert(ret == 0);
     printf("Send NULL test: ret = %d\r\n", ret);
-    
     // 测试1.3：发送十六进制数据
-    uint8_t hex_data[] = {0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF};
+    uint8_t hex_data[] = {1, 2, 3, 4, 5, 6};
     ret = elab_debug_uart_send(hex_data, sizeof(hex_data));
     elab_assert(ret >= 0);
     elab_debug_uart_send((uint8_t *)"\r\n", 2);
@@ -294,6 +296,7 @@ int main(void)
 {
     // -------- BSP 初始化 --------
     BSP_Init();
+
     HAL_Delay(3000);
     // -------- 启动信息 --------
     printf("\r\n\r\n========================================\r\n");
@@ -301,8 +304,9 @@ int main(void)
     printf("========================================\r\n");
     printf("TAG: %s\r\n", TAG);
     printf("========================================\r\n\r\n");
-    
-    // -------- 运行所有测试 --------
+
+
+    //-------- 运行所有测试 --------
     test_send();
     
     test_queue_basic();
@@ -313,8 +317,8 @@ int main(void)
     
     test_echo();
     
-    // -------- 断言触发测试（默认注释） --------
-    // test_assert_trigger();
+    //-------- 断言触发测试（默认注释） --------
+    test_assert_trigger();
     
     // -------- 结束 --------
     printf("\r\n========================================\r\n");
