@@ -177,17 +177,32 @@ void elab_debug_uart_buffer_clear(void)
 
 #ifdef __ARMCC_VERSION //  ARM Compiler
     #pragma import __use_no_semihosting_swi
+    
     void _sys_exit(int x)
     {
         (void)x;
     }
+    
     struct __FILE { int handle; };
     FILE __stdout;
 
+    // ★★★ 只改这个函数 ★★★
     int fputc(int ch, FILE *f)
     {
         (void)f;
-        HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+        uint8_t c = (uint8_t)ch;
+        
+        // 等待串口空闲
+        while (HAL_UART_GetState(&huart1) != HAL_UART_STATE_READY) {}
+        
+        // 关中断保护
+        HAL_NVIC_DisableIRQ(USARTx_IRQn);
+        
+        HAL_UART_Transmit(&huart1, &c, 1, HAL_MAX_DELAY);
+        
+        // 开中断
+        HAL_NVIC_EnableIRQ(USARTx_IRQn);
+        
         return ch;
     }
 #elif defined(__GNUC__) // GCC Compiler

@@ -7,7 +7,7 @@ extern "C" {
 
 #include "elab_std.h"
 #include "elab_log.h"
-
+#include "stm32f1xx_hal.h"
 void elab_assert_func(void);
 
 /* 所有断言宏统一传入 TAG */
