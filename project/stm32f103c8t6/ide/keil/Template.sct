@@ -1,0 +1,13 @@
+LR_IROM1 0x08000000 0x00010000  {    ; load region size_region (64KB)
+  ER_IROM1 0x08000000 0x00010000  {  ; load address = execution address (64KB)
+   *.o (RESET, +First)
+   *(InRoot$$Sections)
+   .ANY (+RO)
+   .ANY (+XO)
+   * (elab_export)      ; ★ 不需要 KEEP，直接写 * (elab_export)
+   * (expoll)           ; ★ 不需要 KEEP，直接写 * (expoll)
+  }
+  RW_IRAM1 0x20000000 0x00005000  {  ; RW data (20KB)
+   .ANY (+RW +ZI)
+  }
+}
