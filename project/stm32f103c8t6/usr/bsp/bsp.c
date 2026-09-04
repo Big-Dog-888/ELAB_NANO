@@ -1,5 +1,6 @@
-#include "bsp.h"
 #include "stm32f1xx_hal.h"
+ #include "debug_uart.h"
+#include "../../../../elab/common/elab_export.h"
 // #include "SEGGER_RTT.h"
 /**
   * @brief  This function is executed in case of error occurrence.
@@ -59,6 +60,11 @@ uint32_t elab_time(void)
     return HAL_GetTick();
 }
 
+uint32_t elab_time_ms(void) 
+{ 
+  return HAL_GetTick(); 
+}
+
 
 
  void BSP_Init(void)
@@ -74,3 +80,4 @@ uint32_t elab_time(void)
   // SEGGER_RTT_ConfigUpBuffer(0, "up", upBuffer, sizeof(upBuffer), SEGGER_RTT_MODE_NO_BLOCK_SKIP);
   // SEGGER_RTT_ConfigDownBuffer(0, "down", downBuffer, sizeof(downBuffer), SEGGER_RTT_MODE_NO_BLOCK_SKIP);
  }
+INIT_EXPORT(BSP_Init, EXPORT_LEVEL_BSP);

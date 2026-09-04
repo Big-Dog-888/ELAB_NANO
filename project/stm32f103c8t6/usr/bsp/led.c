@@ -1,5 +1,5 @@
 #include "led.h"
-
+#include "../../../../elab/common/elab_export.h"
 GPIO_InitTypeDef GPIO_InitStruct = {0};
 void LED_Init(void)
 {
@@ -10,6 +10,7 @@ void LED_Init(void)
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 }
+INIT_EXPORT(LED_Init, EXPORT_DEVICE);
 
 void LED_Ctl(LED_t led, LED_Status_t status)
 {
