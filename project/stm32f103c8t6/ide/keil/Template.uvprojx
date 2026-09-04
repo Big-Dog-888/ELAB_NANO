@@ -452,6 +452,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\usr\bsp\bsp.c</FilePath>
             </File>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\usr\bsp\led.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -508,9 +513,6 @@
               <FilePath>..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_cortex.c</FilePath>
             </File>
           </Files>
-        </Group>
-        <Group>
-          <GroupName>elab</GroupName>
         </Group>
       </Groups>
     </Target>
