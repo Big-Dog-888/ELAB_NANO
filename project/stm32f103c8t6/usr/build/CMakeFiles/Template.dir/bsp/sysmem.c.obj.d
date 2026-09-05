@@ -1,0 +1,21 @@
+CMakeFiles/Template.dir/bsp/sysmem.c.obj: \
+ C:\Users\BigDog\Desktop\File\ELAB_NANO\project\stm32f103c8t6\usr\bsp\sysmem.c \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/errno.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/sys/errno.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/sys/reent.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/_ansi.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/newlib.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/_newlib_version.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/sys/config.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/machine/ieeefp.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/sys/features.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/include/stddef.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/sys/cdefs.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/machine/_default_types.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/sys/_types.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/machine/_types.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/sys/lock.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/include/stdint.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/stdint.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/sys/_intsup.h \
+ E:/qpc/qp/qtools/gnu_arm-none-eabi/arm-none-eabi/include/sys/_stdint.h

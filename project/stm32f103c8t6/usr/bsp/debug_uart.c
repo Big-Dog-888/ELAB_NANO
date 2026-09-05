@@ -11,7 +11,7 @@
 #define USARTx_PORT                      GPIOA
 #define USARTx_IRQn                      USART1_IRQn
 
-#define ELAB_DEBUG_UART_BUFFER_TX               (512)
+#define ELAB_DEBUG_UART_BUFFER_TX               (1024)
 #define ELAB_DEBUG_UART_BUFFER_RX               (16)
 
 UART_HandleTypeDef huart1;
@@ -46,6 +46,8 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(USARTx_PORT, &GPIO_InitStruct);
 
+    HAL_NVIC_SetPriority(USARTx_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(USARTx_IRQn);
   }
 }
 
@@ -112,6 +114,7 @@ void elab_debug_uart_init(uint32_t baudrate)
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   HAL_UART_Init(&huart1);
+  HAL_UART_Receive_IT(&huart1, &byte_recv, 1);
   elib_queue_init(&queue_rx, buffer_rx, ELAB_DEBUG_UART_BUFFER_RX);
   elib_queue_init(&queue_tx, buffer_tx, ELAB_DEBUG_UART_BUFFER_TX);
 }
@@ -175,51 +178,78 @@ void elab_debug_uart_buffer_clear(void)
     HAL_NVIC_EnableIRQ(USARTx_IRQn);
 }
 
+
+
 #ifdef __ARMCC_VERSION //  ARM Compiler
     #pragma import __use_no_semihosting_swi
-    
     void _sys_exit(int x)
     {
         (void)x;
     }
-    
     struct __FILE { int handle; };
     FILE __stdout;
 
-    // ★★★ 只改这个函数 ★★★
     int fputc(int ch, FILE *f)
     {
         (void)f;
-        uint8_t c = (uint8_t)ch;
-        
-        // 等待串口空闲
-        while (HAL_UART_GetState(&huart1) != HAL_UART_STATE_READY) {}
-        
-        // 关中断保护
-        HAL_NVIC_DisableIRQ(USARTx_IRQn);
-        
-        HAL_UART_Transmit(&huart1, &c, 1, HAL_MAX_DELAY);
-        
-        // 开中断
-        HAL_NVIC_EnableIRQ(USARTx_IRQn);
-        
+        elab_debug_uart_send(&ch, 1);
         return ch;
     }
 #elif defined(__GNUC__) // GCC Compiler
-    int __io_putchar(int ch)
-    {
-        HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
-        return ch;
-    }
+  #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+  PUTCHAR_PROTOTYPE
+  {
+      elab_debug_uart_send(&ch, 1);
+      return ch;
+  }
 
-    int _write(int file, char *ptr, int len)
-    {
-        (void)file;
-        for(int i=0;i<len;i++)
-        {
-           __io_putchar(*ptr++); 
-        }
-        return len;
-
-    }
 #endif
+
+// #ifdef __ARMCC_VERSION //  ARM Compiler
+//     #pragma import __use_no_semihosting_swi
+    
+//     void _sys_exit(int x)
+//     {
+//         (void)x;
+//     }
+    
+//     struct __FILE { int handle; };
+//     FILE __stdout;
+
+//     // ★★★ 只改这个函数 ★★★
+//     int fputc(int ch, FILE *f)
+//     {
+//         (void)f;
+//         uint8_t c = (uint8_t)ch;
+        
+//         // 等待串口空闲
+//         while (HAL_UART_GetState(&huart1) != HAL_UART_STATE_READY) {}
+        
+//         // 关中断保护
+//         HAL_NVIC_DisableIRQ(USARTx_IRQn);
+        
+//         HAL_UART_Transmit(&huart1, &c, 1, HAL_MAX_DELAY);
+        
+//         // 开中断
+//         HAL_NVIC_EnableIRQ(USARTx_IRQn);
+        
+//         return ch;
+//     }
+// #elif defined(__GNUC__) // GCC Compiler
+//     int __io_putchar(int ch)
+//     {
+//         HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+//         return ch;
+//     }
+
+//     int _write(int file, char *ptr, int len)
+//     {
+//         (void)file;
+//         for(int i=0;i<len;i++)
+//         {
+//            __io_putchar(*ptr++); 
+//         }
+//         return len;
+
+//     }
+// #endif

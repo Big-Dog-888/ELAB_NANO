@@ -1,7 +1,19 @@
 #include "stm32f1xx_hal.h"
- #include "debug_uart.h"
+#include "debug_uart.h"
 #include "../../../../elab/common/elab_export.h"
+#include "../../../../elab/common/elab_log.h"
+#include "../../../../elab/3rd/Shell/shell.h"
+#include <stdio.h>
 // #include "SEGGER_RTT.h"
+
+ELAB_TAG("BSP");
+
+#define SHELL_POLL_PERIOD_MS                (10)
+#define SHELL_BUFFER_SIZE                   (512)
+
+static Shell shell_uart;
+static char shell_uart_buffer[SHELL_BUFFER_SIZE];
+
 /**
   * @brief  This function is executed in case of error occurrence.
   * @retval None
@@ -74,10 +86,29 @@ uint32_t elab_time_ms(void)
   
   SystemClock_Config();
   elab_debug_uart_init(115200);
-
+  printf("BSP_init.\r\n");
+  (void)TAG;  // ★ 加这行，告诉编译器 TAG 是故意不用的
   // static unsigned char upBuffer[1024];
   // static unsigned char downBuffer[1024];
   // SEGGER_RTT_ConfigUpBuffer(0, "up", upBuffer, sizeof(upBuffer), SEGGER_RTT_MODE_NO_BLOCK_SKIP);
   // SEGGER_RTT_ConfigDownBuffer(0, "down", downBuffer, sizeof(downBuffer), SEGGER_RTT_MODE_NO_BLOCK_SKIP);
  }
 INIT_EXPORT(BSP_Init, EXPORT_LEVEL_BSP);
+
+void Shell_Init(void)
+{
+    shell_uart.read=(int16_t (*)(char *, uint16_t))elab_debug_uart_receive;
+    shell_uart.write = (int16_t (*)(char *, uint16_t))elab_debug_uart_send;
+    shellInit(&shell_uart, shell_uart_buffer, SHELL_BUFFER_SIZE);
+}
+INIT_EXPORT(Shell_Init, EXPORT_USER);
+
+static void shell_poll(void)
+{
+    char byte;
+    while (shell_uart.read && shell_uart.read(&byte, 1) == 1)
+    {
+        shellHandler(&shell_uart, byte);
+    }
+} 
+POLL_EXPORT(shell_poll, SHELL_POLL_PERIOD_MS);

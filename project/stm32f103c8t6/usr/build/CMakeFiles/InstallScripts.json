@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/BigDog/Desktop/File/ELAB_NANO/project/stm32f103c8t6/usr/build/cmake_install.cmake",
+		"C:/Users/BigDog/Desktop/File/ELAB_NANO/project/stm32f103c8t6/usr/build/stm32f1xx_libaray/cmake_install.cmake",
+		"C:/Users/BigDog/Desktop/File/ELAB_NANO/project/stm32f103c8t6/usr/build/elab_libaray/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

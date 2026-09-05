@@ -45,13 +45,19 @@
     #define elab_unlikely(x)            (x)
 #elif defined (__GNUC__)                      /* GNU GCC Compiler */
     #include <stdarg.h>
-    #define ELAB_SECTION(x)             __attribute__((section(x)))
     #define ELAB_USED                   __attribute__((used))
     #define ELAB_ALIGN(n)               __attribute__((aligned(n)))
     #define ELAB_WEAK                   __attribute__((weak))
     #define elab_inline                 static inline
     #define elab_likely(x)              __builtin_expect(!!(x), 1)
     #define elab_unlikely(x)            __builtin_expect(!!(x), 0)
+    #if defined(_WIN32)
+        #define ELAB_SECTION(x)             __attribute__((section(".rdata$" x "1")))
+        #define ELAB_SECTION_START(x)       __attribute__((section(".rdata$" x "0")))
+        #define ELAB_SECTION_END(x)         __attribute__((section(".rdata$" x "2")))
+    #else
+        #define ELAB_SECTION(x)             __attribute__((section(x)))
+    #endif
 #elif defined(__TASKING__)                  /* Tasking Compiler for AURIX */
 
     #include <stdarg.h>
