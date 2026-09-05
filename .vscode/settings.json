@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.env.windows": {
+        "Path": "${env:Path};E:\\qpc\\qp\\qtools\\mingw32\\bin;E:\\qpc\\qp\\qtools\\gnu_arm-none-eabi\\bin"
+    }
+}

@@ -24,6 +24,8 @@ virtualFolder:
         - path: ../../usr/bsp/bsp.c
         - path: ../../usr/bsp/debug_uart.c
         - path: ../../usr/bsp/led.c
+        - path: ../../usr/bsp/syscalls.c
+        - path: ../../usr/bsp/sysmem.c
       folders: []
     - name: stm32f103_hal
       files:
@@ -71,6 +73,13 @@ virtualFolder:
               files:
                 - path: ../../../../elab/3rd/state_machine/state_machine.c
               folders: []
+            - name: Shell
+              files:
+                - path: ../../../../elab/3rd/Shell/shell.c
+                - path: ../../../../elab/3rd/Shell/shell_cmd_list.c
+                - path: ../../../../elab/3rd/Shell/shell_companion.c
+                - path: ../../../../elab/3rd/Shell/shell_ext.c
+              folders: []
         - name: common
           files:
             - path: ../../../../elab/common/elab_common.c
@@ -110,6 +119,7 @@ targets:
         - ../../../../elab/3rd/lwrb
         - ../../../../elab/3rd/ringbuf
         - ../../../../elab/3rd/state_machine
+        - ../../../../elab/3rd/Shell
       libList: []
     excludeList: []
     settings:

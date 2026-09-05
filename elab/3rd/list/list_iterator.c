@@ -27,7 +27,7 @@ list_iterator_new(list_t *list, list_direction_t direction) {
 
 list_iterator_t *
 list_iterator_new_from_node(list_node_t *node, list_direction_t direction) {
-list_iterator_t *self=LIST_MALLOC(sizeof(list_iterator_t));
+  list_iterator_t *self=LIST_MALLOC(sizeof(list_iterator_t));
   if (!self)
     return NULL;
   self->next = node;
