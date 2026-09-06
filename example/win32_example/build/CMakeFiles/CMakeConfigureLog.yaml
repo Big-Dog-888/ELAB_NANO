@@ -5204,8 +5204,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-152lyw"
-      binary: "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-152lyw"
+      source: "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-jbsupu"
+      binary: "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-jbsupu"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -5214,13 +5214,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-152lyw'
+        Change Dir: 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-jbsupu'
         
-        Run Build Command(s): E:/qpc/qp/qtools/mingw32/bin/cmake.exe -E env VERBOSE=1 E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe -f Makefile cmTC_9554b/fast
-        E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_9554b.dir\\build.make CMakeFiles/cmTC_9554b.dir/build
-        mingw32-make[1]: Entering directory 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-152lyw'
-        Building C object CMakeFiles/cmTC_9554b.dir/CMakeCCompilerABI.c.obj
-        E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe   -v -o CMakeFiles\\cmTC_9554b.dir\\CMakeCCompilerABI.c.obj -c E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c
+        Run Build Command(s): E:/qpc/qp/qtools/mingw32/bin/cmake.exe -E env VERBOSE=1 E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe -f Makefile cmTC_094b9/fast
+        E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_094b9.dir\\build.make CMakeFiles/cmTC_094b9.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-jbsupu'
+        Building C object CMakeFiles/cmTC_094b9.dir/CMakeCCompilerABI.c.obj
+        E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe   -v -o CMakeFiles\\cmTC_094b9.dir\\CMakeCCompilerABI.c.obj -c E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe
         OFFLOAD_TARGET_NAMES=nvptx-none
@@ -5229,8 +5229,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 15.2.0 (MinGW-W64 i686-ucrt-posix-dwarf, built by Brecht Sanders, r6) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_9554b.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_9554b.dir\\'
-         E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/cc1.exe -quiet -v -iprefix E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/ -D_REENTRANT E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_9554b.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=pentiumpro -version -o C:\\Users\\BigDog\\AppData\\Local\\Temp\\cc0gJRlI.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_094b9.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_094b9.dir\\'
+         E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/cc1.exe -quiet -v -iprefix E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/ -D_REENTRANT E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_094b9.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=pentiumpro -version -o C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccQQ31lb.s
         GNU C23 (MinGW-W64 i686-ucrt-posix-dwarf, built by Brecht Sanders, r6) version 15.2.0 (i686-w64-mingw32)
         	compiled by GNU C version 15.2.0, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
         
@@ -5249,14 +5249,14 @@ events:
          E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/include
         End of search list.
         Compiler executable checksum: af5d833b2ff4af6c90f6ff235fb279dd
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_9554b.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_9554b.dir\\'
-         E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_9554b.dir\\CMakeCCompilerABI.c.obj C:\\Users\\BigDog\\AppData\\Local\\Temp\\cc0gJRlI.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_094b9.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_094b9.dir\\'
+         E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_094b9.dir\\CMakeCCompilerABI.c.obj C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccQQ31lb.s
         GNU assembler version 2.46.0 (i686-w64-mingw32) using BFD version (Binutils for MinGW-W64 i686, built by Brecht Sanders, r6) 2.46.0.20260210
         COMPILER_PATH=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/;E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/
         LIBRARY_PATH=E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_9554b.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_9554b.dir\\CMakeCCompilerABI.c.'
-        Linking C executable cmTC_9554b.exe
-        E:\\qpc\\qp\\qtools\\mingw32\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_9554b.dir\\link.txt --verbose=1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_094b9.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_094b9.dir\\CMakeCCompilerABI.c.'
+        Linking C executable cmTC_094b9.exe
+        E:\\qpc\\qp\\qtools\\mingw32\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_094b9.dir\\link.txt --verbose=1
         Using built-in specs.
         COLLECT_GCC=E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe
         COLLECT_LTO_WRAPPER=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe
@@ -5268,16 +5268,16 @@ events:
         gcc version 15.2.0 (MinGW-W64 i686-ucrt-posix-dwarf, built by Brecht Sanders, r6) 
         COMPILER_PATH=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/;E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/
         LIBRARY_PATH=E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9554b.exe' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'cmTC_9554b.'
-         E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/collect2.exe -plugin E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\cc16zLiI.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pe -Bdynamic --large-address-aware -o cmTC_9554b.exe E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0 -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_9554b.dir/objects.a --no-whole-archive --out-implib libcmTC_9554b.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtend.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_094b9.exe' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'cmTC_094b9.'
+         E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/collect2.exe -plugin E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\cct09vpO.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pe -Bdynamic --large-address-aware -o cmTC_094b9.exe E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0 -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_094b9.dir/objects.a --no-whole-archive --out-implib libcmTC_094b9.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtend.o
         collect2 version 15.2.0
-        E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/ld.exe -plugin E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\cc16zLiI.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pe -Bdynamic --large-address-aware -o cmTC_9554b.exe E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0 -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_9554b.dir/objects.a --no-whole-archive --out-implib libcmTC_9554b.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtend.o
+        E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/ld.exe -plugin E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\cct09vpO.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pe -Bdynamic --large-address-aware -o cmTC_094b9.exe E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0 -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_094b9.dir/objects.a --no-whole-archive --out-implib libcmTC_094b9.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtend.o
         GNU ld (Binutils for MinGW-W64 i686, built by Brecht Sanders, r6) 2.46.0.20260210
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9554b.exe' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'cmTC_9554b.'
-        E:\\qpc\\qp\\qtools\\mingw32\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_9554b.dir/objects.a
-        E:\\qpc\\qp\\qtools\\mingw32\\bin\\ar.exe qc CMakeFiles\\cmTC_9554b.dir/objects.a @CMakeFiles\\cmTC_9554b.dir\\objects1.rsp
-        E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_9554b.dir/objects.a -Wl,--no-whole-archive -o cmTC_9554b.exe -Wl,--out-implib,libcmTC_9554b.dll.a -Wl,--major-image-version,0,--minor-image-version,0
-        mingw32-make[1]: Leaving directory 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-152lyw'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_094b9.exe' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'cmTC_094b9.'
+        E:\\qpc\\qp\\qtools\\mingw32\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_094b9.dir/objects.a
+        E:\\qpc\\qp\\qtools\\mingw32\\bin\\ar.exe qc CMakeFiles\\cmTC_094b9.dir/objects.a @CMakeFiles\\cmTC_094b9.dir\\objects1.rsp
+        E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_094b9.dir/objects.a -Wl,--no-whole-archive -o cmTC_094b9.exe -Wl,--out-implib,libcmTC_094b9.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        mingw32-make[1]: Leaving directory 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-jbsupu'
         
       exitCode: 0
   -
@@ -5312,13 +5312,13 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-152lyw']
+        ignore line: [Change Dir: 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-jbsupu']
         ignore line: []
-        ignore line: [Run Build Command(s): E:/qpc/qp/qtools/mingw32/bin/cmake.exe -E env VERBOSE=1 E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe -f Makefile cmTC_9554b/fast]
-        ignore line: [E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_9554b.dir\\build.make CMakeFiles/cmTC_9554b.dir/build]
-        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-152lyw']
-        ignore line: [Building C object CMakeFiles/cmTC_9554b.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe   -v -o CMakeFiles\\cmTC_9554b.dir\\CMakeCCompilerABI.c.obj -c E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): E:/qpc/qp/qtools/mingw32/bin/cmake.exe -E env VERBOSE=1 E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe -f Makefile cmTC_094b9/fast]
+        ignore line: [E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_094b9.dir\\build.make CMakeFiles/cmTC_094b9.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-jbsupu']
+        ignore line: [Building C object CMakeFiles/cmTC_094b9.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe   -v -o CMakeFiles\\cmTC_094b9.dir\\CMakeCCompilerABI.c.obj -c E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
@@ -5327,8 +5327,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 15.2.0 (MinGW-W64 i686-ucrt-posix-dwarf  built by Brecht Sanders  r6) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_9554b.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_9554b.dir\\']
-        ignore line: [ E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/cc1.exe -quiet -v -iprefix E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/ -D_REENTRANT E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_9554b.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=pentiumpro -version -o C:\\Users\\BigDog\\AppData\\Local\\Temp\\cc0gJRlI.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_094b9.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_094b9.dir\\']
+        ignore line: [ E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/cc1.exe -quiet -v -iprefix E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/ -D_REENTRANT E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_094b9.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=pentiumpro -version -o C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccQQ31lb.s]
         ignore line: [GNU C23 (MinGW-W64 i686-ucrt-posix-dwarf  built by Brecht Sanders  r6) version 15.2.0 (i686-w64-mingw32)]
         ignore line: [	compiled by GNU C version 15.2.0  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version isl-0.27-GMP]
         ignore line: []
@@ -5347,8 +5347,8 @@ events:
         ignore line: [ E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: af5d833b2ff4af6c90f6ff235fb279dd]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_9554b.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_9554b.dir\\']
-        ignore line: [ E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_9554b.dir\\CMakeCCompilerABI.c.obj C:\\Users\\BigDog\\AppData\\Local\\Temp\\cc0gJRlI.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_094b9.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_094b9.dir\\']
+        ignore line: [ E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_094b9.dir\\CMakeCCompilerABI.c.obj C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccQQ31lb.s]
         ignore line: [GNU assembler version 2.46.0 (i686-w64-mingw32) using BFD version (Binutils for MinGW-W64 i686  built by Brecht Sanders  r6) 2.46.0.20260210]
         ignore line: [COMPILER_PATH=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/]
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/]
@@ -5359,9 +5359,9 @@ events:
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib/]
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/]
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_9554b.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_9554b.dir\\CMakeCCompilerABI.c.']
-        ignore line: [Linking C executable cmTC_9554b.exe]
-        ignore line: [E:\\qpc\\qp\\qtools\\mingw32\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_9554b.dir\\link.txt --verbose=1]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_094b9.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_094b9.dir\\CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_094b9.exe]
+        ignore line: [E:\\qpc\\qp\\qtools\\mingw32\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_094b9.dir\\link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe]
         ignore line: [COLLECT_LTO_WRAPPER=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe]
@@ -5380,13 +5380,13 @@ events:
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib/]
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/]
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9554b.exe' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'cmTC_9554b.']
-        link line: [ E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/collect2.exe -plugin E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\cc16zLiI.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pe -Bdynamic --large-address-aware -o cmTC_9554b.exe E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0 -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_9554b.dir/objects.a --no-whole-archive --out-implib libcmTC_9554b.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_094b9.exe' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'cmTC_094b9.']
+        link line: [ E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/collect2.exe -plugin E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\cct09vpO.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pe -Bdynamic --large-address-aware -o cmTC_094b9.exe E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0 -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_094b9.dir/objects.a --no-whole-archive --out-implib libcmTC_094b9.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmingwex -lmsvcrt -lkernel32 E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtend.o]
           arg [E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll] ==> ignore
           arg [-plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\cc16zLiI.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\cct09vpO.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_eh] ==> ignore
@@ -5409,7 +5409,7 @@ events:
           arg [-Bdynamic] ==> search dynamic
           arg [--large-address-aware] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_9554b.exe] ==> ignore
+          arg [cmTC_094b9.exe] ==> ignore
           arg [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o] ==> obj [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o]
           arg [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o] ==> obj [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o]
           arg [-LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0] ==> dir [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0]
@@ -5420,10 +5420,10 @@ events:
           arg [-LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../..] ==> dir [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../..]
           arg [-v] ==> ignore
           arg [--whole-archive] ==> ignore
-          arg [CMakeFiles\\cmTC_9554b.dir/objects.a] ==> ignore
+          arg [CMakeFiles\\cmTC_094b9.dir/objects.a] ==> ignore
           arg [--no-whole-archive] ==> ignore
           arg [--out-implib] ==> ignore
-          arg [libcmTC_9554b.dll.a] ==> ignore
+          arg [libcmTC_094b9.dll.a] ==> ignore
           arg [--major-image-version] ==> ignore
           arg [0] ==> ignore
           arg [--minor-image-version] ==> ignore
@@ -5505,8 +5505,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-90h4j4"
-      binary: "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-90h4j4"
+      source: "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-ef10zl"
+      binary: "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-ef10zl"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -5516,13 +5516,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-90h4j4'
+        Change Dir: 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-ef10zl'
         
-        Run Build Command(s): E:/qpc/qp/qtools/mingw32/bin/cmake.exe -E env VERBOSE=1 E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe -f Makefile cmTC_3ab60/fast
-        E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_3ab60.dir\\build.make CMakeFiles/cmTC_3ab60.dir/build
-        mingw32-make[1]: Entering directory 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-90h4j4'
-        Building CXX object CMakeFiles/cmTC_3ab60.dir/CMakeCXXCompilerABI.cpp.obj
-        E:\\qpc\\qp\\qtools\\mingw32\\bin\\c++.exe   -v -o CMakeFiles\\cmTC_3ab60.dir\\CMakeCXXCompilerABI.cpp.obj -c E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp
+        Run Build Command(s): E:/qpc/qp/qtools/mingw32/bin/cmake.exe -E env VERBOSE=1 E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe -f Makefile cmTC_6ae65/fast
+        E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_6ae65.dir\\build.make CMakeFiles/cmTC_6ae65.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-ef10zl'
+        Building CXX object CMakeFiles/cmTC_6ae65.dir/CMakeCXXCompilerABI.cpp.obj
+        E:\\qpc\\qp\\qtools\\mingw32\\bin\\c++.exe   -v -o CMakeFiles\\cmTC_6ae65.dir\\CMakeCXXCompilerABI.cpp.obj -c E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=E:\\qpc\\qp\\qtools\\mingw32\\bin\\c++.exe
         OFFLOAD_TARGET_NAMES=nvptx-none
@@ -5531,8 +5531,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 15.2.0 (MinGW-W64 i686-ucrt-posix-dwarf, built by Brecht Sanders, r6) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_3ab60.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_3ab60.dir\\'
-         E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/cc1plus.exe -quiet -v -iprefix E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/ -D_REENTRANT E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_3ab60.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=pentiumpro -version -o C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccGNZkeo.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_6ae65.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_6ae65.dir\\'
+         E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/cc1plus.exe -quiet -v -iprefix E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/ -D_REENTRANT E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_6ae65.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=pentiumpro -version -o C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccsnfAEL.s
         GNU C++17 (MinGW-W64 i686-ucrt-posix-dwarf, built by Brecht Sanders, r6) version 15.2.0 (i686-w64-mingw32)
         	compiled by GNU C version 15.2.0, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
         
@@ -5557,14 +5557,14 @@ events:
          E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/include
         End of search list.
         Compiler executable checksum: de8644b3ec92f269b3b9d2b790f61294
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_3ab60.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_3ab60.dir\\'
-         E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_3ab60.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccGNZkeo.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_6ae65.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_6ae65.dir\\'
+         E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_6ae65.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccsnfAEL.s
         GNU assembler version 2.46.0 (i686-w64-mingw32) using BFD version (Binutils for MinGW-W64 i686, built by Brecht Sanders, r6) 2.46.0.20260210
         COMPILER_PATH=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/;E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/
         LIBRARY_PATH=E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_3ab60.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_3ab60.dir\\CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_3ab60.exe
-        E:\\qpc\\qp\\qtools\\mingw32\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_3ab60.dir\\link.txt --verbose=1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_6ae65.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_6ae65.dir\\CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_6ae65.exe
+        E:\\qpc\\qp\\qtools\\mingw32\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_6ae65.dir\\link.txt --verbose=1
         Using built-in specs.
         COLLECT_GCC=E:\\qpc\\qp\\qtools\\mingw32\\bin\\c++.exe
         COLLECT_LTO_WRAPPER=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe
@@ -5576,16 +5576,16 @@ events:
         gcc version 15.2.0 (MinGW-W64 i686-ucrt-posix-dwarf, built by Brecht Sanders, r6) 
         COMPILER_PATH=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/;E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/
         LIBRARY_PATH=E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/;E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3ab60.exe' '-foffload-options=-l_GCC_stdc++' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'cmTC_3ab60.'
-         E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/collect2.exe -plugin E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccK1wjgV.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pe -Bdynamic --large-address-aware -u ___register_frame_info -u ___deregister_frame_info -o cmTC_3ab60.exe E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0 -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_3ab60.dir/objects.a --no-whole-archive --out-implib libcmTC_3ab60.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtend.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6ae65.exe' '-foffload-options=-l_GCC_stdc++' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'cmTC_6ae65.'
+         E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/collect2.exe -plugin E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccDcgObg.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pe -Bdynamic --large-address-aware -u ___register_frame_info -u ___deregister_frame_info -o cmTC_6ae65.exe E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0 -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_6ae65.dir/objects.a --no-whole-archive --out-implib libcmTC_6ae65.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtend.o
         collect2 version 15.2.0
-        E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/ld.exe -plugin E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccK1wjgV.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pe -Bdynamic --large-address-aware -u ___register_frame_info -u ___deregister_frame_info -o cmTC_3ab60.exe E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0 -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_3ab60.dir/objects.a --no-whole-archive --out-implib libcmTC_3ab60.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtend.o
+        E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/ld.exe -plugin E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccDcgObg.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pe -Bdynamic --large-address-aware -u ___register_frame_info -u ___deregister_frame_info -o cmTC_6ae65.exe E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0 -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_6ae65.dir/objects.a --no-whole-archive --out-implib libcmTC_6ae65.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtend.o
         GNU ld (Binutils for MinGW-W64 i686, built by Brecht Sanders, r6) 2.46.0.20260210
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3ab60.exe' '-foffload-options=-l_GCC_stdc++' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'cmTC_3ab60.'
-        E:\\qpc\\qp\\qtools\\mingw32\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_3ab60.dir/objects.a
-        E:\\qpc\\qp\\qtools\\mingw32\\bin\\ar.exe qc CMakeFiles\\cmTC_3ab60.dir/objects.a @CMakeFiles\\cmTC_3ab60.dir\\objects1.rsp
-        E:\\qpc\\qp\\qtools\\mingw32\\bin\\c++.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_3ab60.dir/objects.a -Wl,--no-whole-archive -o cmTC_3ab60.exe -Wl,--out-implib,libcmTC_3ab60.dll.a -Wl,--major-image-version,0,--minor-image-version,0
-        mingw32-make[1]: Leaving directory 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-90h4j4'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6ae65.exe' '-foffload-options=-l_GCC_stdc++' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'cmTC_6ae65.'
+        E:\\qpc\\qp\\qtools\\mingw32\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_6ae65.dir/objects.a
+        E:\\qpc\\qp\\qtools\\mingw32\\bin\\ar.exe qc CMakeFiles\\cmTC_6ae65.dir/objects.a @CMakeFiles\\cmTC_6ae65.dir\\objects1.rsp
+        E:\\qpc\\qp\\qtools\\mingw32\\bin\\c++.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_6ae65.dir/objects.a -Wl,--no-whole-archive -o cmTC_6ae65.exe -Wl,--out-implib,libcmTC_6ae65.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        mingw32-make[1]: Leaving directory 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-ef10zl'
         
       exitCode: 0
   -
@@ -5626,13 +5626,13 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-90h4j4']
+        ignore line: [Change Dir: 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-ef10zl']
         ignore line: []
-        ignore line: [Run Build Command(s): E:/qpc/qp/qtools/mingw32/bin/cmake.exe -E env VERBOSE=1 E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe -f Makefile cmTC_3ab60/fast]
-        ignore line: [E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_3ab60.dir\\build.make CMakeFiles/cmTC_3ab60.dir/build]
-        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-90h4j4']
-        ignore line: [Building CXX object CMakeFiles/cmTC_3ab60.dir/CMakeCXXCompilerABI.cpp.obj]
-        ignore line: [E:\\qpc\\qp\\qtools\\mingw32\\bin\\c++.exe   -v -o CMakeFiles\\cmTC_3ab60.dir\\CMakeCXXCompilerABI.cpp.obj -c E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): E:/qpc/qp/qtools/mingw32/bin/cmake.exe -E env VERBOSE=1 E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe -f Makefile cmTC_6ae65/fast]
+        ignore line: [E:/qpc/qp/qtools/mingw32/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_6ae65.dir\\build.make CMakeFiles/cmTC_6ae65.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build/CMakeFiles/CMakeScratch/TryCompile-ef10zl']
+        ignore line: [Building CXX object CMakeFiles/cmTC_6ae65.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [E:\\qpc\\qp\\qtools\\mingw32\\bin\\c++.exe   -v -o CMakeFiles\\cmTC_6ae65.dir\\CMakeCXXCompilerABI.cpp.obj -c E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=E:\\qpc\\qp\\qtools\\mingw32\\bin\\c++.exe]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
@@ -5641,8 +5641,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 15.2.0 (MinGW-W64 i686-ucrt-posix-dwarf  built by Brecht Sanders  r6) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_3ab60.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_3ab60.dir\\']
-        ignore line: [ E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/cc1plus.exe -quiet -v -iprefix E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/ -D_REENTRANT E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_3ab60.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=pentiumpro -version -o C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccGNZkeo.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_6ae65.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_6ae65.dir\\']
+        ignore line: [ E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/cc1plus.exe -quiet -v -iprefix E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/ -D_REENTRANT E:\\qpc\\qp\\qtools\\mingw32\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_6ae65.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=pentiumpro -version -o C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccsnfAEL.s]
         ignore line: [GNU C++17 (MinGW-W64 i686-ucrt-posix-dwarf  built by Brecht Sanders  r6) version 15.2.0 (i686-w64-mingw32)]
         ignore line: [	compiled by GNU C version 15.2.0  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version isl-0.27-GMP]
         ignore line: []
@@ -5667,8 +5667,8 @@ events:
         ignore line: [ E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: de8644b3ec92f269b3b9d2b790f61294]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_3ab60.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_3ab60.dir\\']
-        ignore line: [ E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_3ab60.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccGNZkeo.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_6ae65.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_6ae65.dir\\']
+        ignore line: [ E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\\cmTC_6ae65.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccsnfAEL.s]
         ignore line: [GNU assembler version 2.46.0 (i686-w64-mingw32) using BFD version (Binutils for MinGW-W64 i686  built by Brecht Sanders  r6) 2.46.0.20260210]
         ignore line: [COMPILER_PATH=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/]
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/]
@@ -5679,9 +5679,9 @@ events:
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib/]
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/]
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_3ab60.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_3ab60.dir\\CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_3ab60.exe]
-        ignore line: [E:\\qpc\\qp\\qtools\\mingw32\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_3ab60.dir\\link.txt --verbose=1]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_6ae65.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'CMakeFiles\\cmTC_6ae65.dir\\CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_6ae65.exe]
+        ignore line: [E:\\qpc\\qp\\qtools\\mingw32\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_6ae65.dir\\link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=E:\\qpc\\qp\\qtools\\mingw32\\bin\\c++.exe]
         ignore line: [COLLECT_LTO_WRAPPER=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe]
@@ -5700,13 +5700,13 @@ events:
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib/]
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/]
         ignore line: [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_3ab60.exe' '-foffload-options=-l_GCC_stdc++' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'cmTC_3ab60.']
-        link line: [ E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/collect2.exe -plugin E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccK1wjgV.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pe -Bdynamic --large-address-aware -u ___register_frame_info -u ___deregister_frame_info -o cmTC_3ab60.exe E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0 -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_3ab60.dir/objects.a --no-whole-archive --out-implib libcmTC_3ab60.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_6ae65.exe' '-foffload-options=-l_GCC_stdc++' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-dumpdir' 'cmTC_6ae65.']
+        link line: [ E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/collect2.exe -plugin E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll -plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccDcgObg.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pe -Bdynamic --large-address-aware -u ___register_frame_info -u ___deregister_frame_info -o cmTC_6ae65.exe E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0 -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib -LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../.. -v --whole-archive CMakeFiles\\cmTC_6ae65.dir/objects.a --no-whole-archive --out-implib libcmTC_6ae65.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmingwex -lmsvcrt -lkernel32 E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtend.o]
           arg [E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/liblto_plugin.dll] ==> ignore
           arg [-plugin-opt=E:/qpc/qp/qtools/mingw32/bin/../libexec/gcc/i686-w64-mingw32/15.2.0/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccK1wjgV.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\BigDog\\AppData\\Local\\Temp\\ccDcgObg.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
@@ -5733,7 +5733,7 @@ events:
           arg [-u] ==> ignore
           arg [___deregister_frame_info] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_3ab60.exe] ==> ignore
+          arg [cmTC_6ae65.exe] ==> ignore
           arg [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o] ==> obj [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o]
           arg [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o] ==> obj [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/crtbegin.o]
           arg [-LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0] ==> dir [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0]
@@ -5744,10 +5744,10 @@ events:
           arg [-LE:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../..] ==> dir [E:/qpc/qp/qtools/mingw32/bin/../lib/gcc/i686-w64-mingw32/15.2.0/../../..]
           arg [-v] ==> ignore
           arg [--whole-archive] ==> ignore
-          arg [CMakeFiles\\cmTC_3ab60.dir/objects.a] ==> ignore
+          arg [CMakeFiles\\cmTC_6ae65.dir/objects.a] ==> ignore
           arg [--no-whole-archive] ==> ignore
           arg [--out-implib] ==> ignore
-          arg [libcmTC_3ab60.dll.a] ==> ignore
+          arg [libcmTC_6ae65.dll.a] ==> ignore
           arg [--major-image-version] ==> ignore
           arg [0] ==> ignore
           arg [--minor-image-version] ==> ignore

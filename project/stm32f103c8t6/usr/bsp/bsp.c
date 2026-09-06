@@ -67,10 +67,6 @@ void SystemClock_Config(void)
   }
 }
 
-uint32_t elab_time(void)
-{
-    return HAL_GetTick();
-}
 
 uint32_t elab_time_ms(void) 
 { 

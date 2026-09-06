@@ -162,7 +162,7 @@ POLL_EXPORT(timer_poll, 300);
 void timer_callback(void *param)
 {
   (void)param;
-  elog_debug("os_timer_test");
+  // elog_debug("os_timer_test");
 
 }
 static const osTimerAttr_t timer_attr_test =
