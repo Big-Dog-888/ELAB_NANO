@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\usr;..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc;..\..\..\..\mcu\stm32f103c8t6\CMSIS\Include;..\..\..\..\mcu\stm32f103c8t6\CMSIS\Device\ST\STM32F1xx\Include;..\..\usr\bsp;..\..\usr\core;..\..\..\..\elab;..\..\..\..\elab\common;..\..\..\..\elab\os;..\..\..\..\elab\os\mcu_noos;..\..\..\..\elab\3rd\list;..\..\..\..\elab\3rd\lwrb;..\..\..\..\elab\3rd\ringbuf;..\..\..\..\elab\3rd\state_machine;..\..\..\..\elab\3rd\Shell;..\..\..\..\elab\elib;..\..\..\..\elab\3rd\xfusion;..\..\..\..\elab\3rd\xfusion\xf_utils_log;..\..\..\..\elab\3rd\RTT</IncludePath>
+              <IncludePath>..\..\usr;..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc;..\..\..\..\mcu\stm32f103c8t6\CMSIS\Include;..\..\..\..\mcu\stm32f103c8t6\CMSIS\Device\ST\STM32F1xx\Include;..\..\usr\bsp;..\..\usr\core;..\..\..\..\elab;..\..\..\..\elab\common;..\..\..\..\elab\os;..\..\..\..\elab\os\mcu_noos;..\..\..\..\elab\3rd\list;..\..\..\..\elab\3rd\lwrb;..\..\..\..\elab\3rd\ringbuf;..\..\..\..\elab\3rd\state_machine;..\..\..\..\elab\3rd\Shell;..\..\..\..\elab\3rd\Unity;..\..\..\..\elab\elib;..\..\..\..\elab\3rd\xfusion;..\..\..\..\elab\3rd\xfusion\xf_utils_log;..\..\..\..\elab\3rd\RTT</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -520,6 +520,41 @@
               <FileName>cmsis_os2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\elab\os\mcu_noos\cmsis_os2.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Unity</GroupName>
+          <Files>
+            <File>
+              <FileName>unity.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\elab\3rd\Unity\unity.c</FilePath>
+            </File>
+            <File>
+              <FileName>unity_fixture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\elab\3rd\Unity\unity_fixture.c</FilePath>
+            </File>
+            <File>
+              <FileName>unity_memory.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\elab\3rd\Unity\unity_memory.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>unity_test</GroupName>
+          <Files>
+            <File>
+              <FileName>test_demo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\unity_test\test_demo.c</FilePath>
+            </File>
+            <File>
+              <FileName>unity_export.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\unity_test\unity_export.c</FilePath>
             </File>
           </Files>
         </Group>

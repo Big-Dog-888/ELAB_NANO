@@ -42,6 +42,8 @@ set(PRO_SRC
     bsp/debug_uart.c
     bsp/syscalls.c
     bsp/sysmem.c
+    unity_test/unity_export.c
+    unity_test/test_demo.c
 )
 
 add_executable(${__PROJ_NAME__})

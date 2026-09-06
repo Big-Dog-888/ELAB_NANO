@@ -80,6 +80,12 @@ virtualFolder:
                 - path: ../../../../elab/3rd/Shell/shell_companion.c
                 - path: ../../../../elab/3rd/Shell/shell_ext.c
               folders: []
+            - name: Unity
+              files:
+                - path: ../../../../elab/3rd/Unity/unity.c
+                - path: ../../../../elab/3rd/Unity/unity_fixture.c
+                - path: ../../../../elab/3rd/Unity/unity_memory.c
+              folders: []
         - name: common
           files:
             - path: ../../../../elab/common/elab_common.c
@@ -97,6 +103,11 @@ virtualFolder:
           files:
             - path: ../../../../elab/os/mcu_noos/cmsis_os2.c
           folders: []
+    - name: unity_test
+      files:
+        - path: ../../usr/unity_test/test_demo.c
+        - path: ../../usr/unity_test/unity_export.c
+      folders: []
 dependenceList: []
 outDir: build
 miscInfo:
@@ -125,6 +136,7 @@ targets:
         - ../../../../elab/3rd/ringbuf
         - ../../../../elab/3rd/state_machine
         - ../../../../elab/3rd/Shell
+        - ../../../../elab/3rd/Unity
         - ../../../../elab/3rd/FreeRTOS
         - ../../../../elab/os
         - ../../../../elab/os/mcu_noos

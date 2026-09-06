@@ -15,6 +15,9 @@ set(ELAB_SRC
     3rd/Shell/shell_companion.c
     3rd/Shell/shell_ext.c
     3rd/Shell/shell.c
+    3rd/Unity/unity.c
+    3rd/Unity/unity_fixture.c
+    3rd/Unity/unity_memory.c
     elib/elib_crc.c
     elib/elib_queue.c
     elib/hash_table.c
@@ -131,6 +134,7 @@ target_include_directories(${LIB_NAME} PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}/3rd/ringbuf
     ${CMAKE_CURRENT_LIST_DIR}/3rd/state_machine
     ${CMAKE_CURRENT_LIST_DIR}/3rd/Shell
+    ${CMAKE_CURRENT_LIST_DIR}/3rd/Unity
     ${CMAKE_CURRENT_LIST_DIR}/elib
 
 
