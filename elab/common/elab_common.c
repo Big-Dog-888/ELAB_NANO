@@ -133,6 +133,9 @@ void elab_debug_uart_init(uint32_t baudrate)
     (void)baudrate;
 
 #if defined(_WIN32)
+    mq_getch = osMessageQueueNew(16, 1, NULL);
+    assert(mq_getch != NULL);
+
     static const osThreadAttr_t attr =
     {
         .name = "debug_uart",
@@ -141,9 +144,6 @@ void elab_debug_uart_init(uint32_t baudrate)
         .stack_size = 2048,
     };
     osThreadNew(_entry_getch, NULL, &attr);
-
-    mq_getch = osMessageQueueNew(16, 1, NULL);
-    assert(mq_getch != NULL);
 #endif
 }
 #endif
