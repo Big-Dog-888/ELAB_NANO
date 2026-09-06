@@ -12,7 +12,10 @@
 #include "elab_common.h"
 #include "elab_assert.h"
 #include <signal.h>
-#include "stdio.h"
+#include <stdio.h>
+#if defined(__linux__)
+#include <unistd.h>
+#endif
 ELAB_TAG("eLabExport");
 
 #if (ELAB_RTOS_CMSIS_OS_EN != 0) //os
