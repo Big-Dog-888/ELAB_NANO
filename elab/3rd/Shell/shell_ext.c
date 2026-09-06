@@ -301,7 +301,12 @@ shell_pointer_t shellExtParsePara(Shell *shell, char *string)
  */
 int shellExtRun(Shell *shell, ShellCommand *command, int argc, char *argv[])
 {
-    typedef int (*cmd_func_t)(...);
+    typedef int (*cmd_func_t)(
+#ifdef __ARMCC_VERSION
+    );
+#else
+    ...);
+#endif
     cmd_func_t func = (cmd_func_t)command->data.cmd.function;
     unsigned int params[SHELL_PARAMETER_MAX_NUMBER] = {0};
     int paramNum = command->attr.attrs.paramNum > (argc - 1) ? 

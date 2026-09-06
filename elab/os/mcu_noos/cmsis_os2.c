@@ -5,8 +5,8 @@
 
 
 /* Kernel functions */
-osStatus_t osKernelInitialize(void) { return 0; }
-osStatus_t osKernelStart(void)      { return 0; }
+osStatus_t osKernelInitialize(void) { return osOK; }
+osStatus_t osKernelStart(void)      { return osOK; }
 
 
 /*裸机情况下无锁*/
@@ -78,9 +78,7 @@ return elab_time_ms();
 
 
 /**裸机情况下定时器CMSISOS2 API */
-#if ELAB_RTOS_CMSIS_OS_EN != 1
 #define MAX_ELAB_NOOS_CMSIS_TIMERS 16 //最大16个定时任务
-#endif
 
 typedef struct {
     osTimerFunc_t callback;
@@ -279,4 +277,29 @@ osStatus_t osMessageQueueDelete(osMessageQueueId_t mq_id) {
     return osOK;
 }
 
+osStatus_t osDelay(uint32_t ticks)
+{
+    uint32_t start = elab_time_ms();
+    while ((elab_time_ms() - start) < ticks);
+    return osOK;
+}
 
+osStatus_t osDelayMs(uint32_t ms)
+{
+    return osDelay(ms);
+}
+
+osStatus_t osDelayUs(uint32_t us)
+{
+    uint32_t start = elab_time_ms();
+    while (((elab_time_ms() - start) * 1000) < us);
+    return osOK;
+}
+
+#if defined(USE_HAL_DRIVER) && defined(STM32F103xB)
+#include "stm32f1xx_hal.h"
+void SysTick_Handler(void)
+{
+    HAL_IncTick();
+}
+#endif

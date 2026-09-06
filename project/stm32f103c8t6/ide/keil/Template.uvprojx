@@ -369,7 +369,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc;..\..\..\..\mcu\stm32f103c8t6\CMSIS\Include;..\..\..\..\mcu\stm32f103c8t6\CMSIS\Device\ST\STM32F1xx\Include;..\..\usr\bsp;..\..\usr\core</IncludePath>
+              <IncludePath>..\..\usr;..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Inc;..\..\..\..\mcu\stm32f103c8t6\CMSIS\Include;..\..\..\..\mcu\stm32f103c8t6\CMSIS\Device\ST\STM32F1xx\Include;..\..\usr\bsp;..\..\usr\core;..\..\..\..\elab;..\..\..\..\elab\common;..\..\..\..\elab\os;..\..\..\..\elab\os\mcu_noos;..\..\..\..\elab\3rd\list;..\..\..\..\elab\3rd\lwrb;..\..\..\..\elab\3rd\ringbuf;..\..\..\..\elab\3rd\state_machine;..\..\..\..\elab\3rd\Shell;..\..\..\..\elab\elib;..\..\..\..\elab\3rd\xfusion;..\..\..\..\elab\3rd\xfusion\xf_utils_log;..\..\..\..\elab\3rd\RTT</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -402,8 +402,7 @@
             <ScatterFile>.\Template.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
-            <Misc></Misc>
-            <LinkerInputFile></LinkerInputFile>
+            <Misc>--library_type=microlib</Misc>
             <DisabledWarnings></DisabledWarnings>
           </LDads>
         </TargetArmAds>
@@ -511,6 +510,16 @@
               <FileName>stm32f1xx_hal_cortex.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\mcu\stm32f103c8t6\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_cortex.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>cmsis_os</GroupName>
+          <Files>
+            <File>
+              <FileName>cmsis_os2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\elab\os\mcu_noos\cmsis_os2.c</FilePath>
             </File>
           </Files>
         </Group>
