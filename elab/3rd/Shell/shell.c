@@ -56,6 +56,7 @@ SHELL_USED const ShellCommand shellUserDefault SHELL_SECTION("shellCommand") =
     ELAB_USED ELAB_SECTION("shellCommand") const ShellCommand _shell_cmd_null = {
         .magic_head = SHELL_MAGIC_NUM,
         .magic_tail = SHELL_MAGIC_NUM,
+        .attr.attrs.type = 0xF,
     };
 
     static const ShellCommand *_get_shell_cmd_start(void)
@@ -364,6 +365,10 @@ static void shellWriteByte(Shell *shell, char data)
 unsigned short shellWriteString(Shell *shell, const char *string)
 {
     SHELL_ASSERT(shell->write, return 0);
+    if (string == NULL)
+    {
+        return 0;
+    }
     return shell->write((char *)string, strlen(string));
 }
 
