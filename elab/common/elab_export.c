@@ -58,25 +58,7 @@ static void _poll_func_execute(void);
 INIT_EXPORT(module_null_init, 0);
 POLL_EXPORT(module_null_init, (1000 * 60 * 60));
 
-#if defined(__GNUC__)
-    #if defined(_WIN32)
-        ELAB_SECTION_START("elab_export") const elab_export_t _elab_export_start = {0};
-        ELAB_SECTION_END("elab_export")   const elab_export_t _elab_export_end   = {0};
-        ELAB_SECTION_START("expoll")      const elab_export_t _expoll_start      = {0};
-        ELAB_SECTION_END("expoll")        const elab_export_t _expoll_end        = {0};
-    #else
-        extern elab_export_t __start_elab_export;
-        extern elab_export_t __stop_elab_export;
-        extern elab_export_t __start_expoll;
-        extern elab_export_t __stop_expoll;
-    #endif
-#endif
 
-#if defined(__GNUC__) && defined(_WIN32)
-#define ELAB_MAX_EXPORTS 64
-static elab_export_t _mingw_init_table[ELAB_MAX_EXPORTS];
-static elab_export_t _mingw_poll_table[ELAB_MAX_EXPORTS];
-#endif
 
 static elab_export_t *export_init_table = NULL;
 static uint32_t count_export_init = 0;
@@ -235,54 +217,10 @@ static void elab_exit(void)
   * @brief  Get the init export table.
   */
 static void _get_init_export_table(void)
-{ 
-#if defined(__GNUC__)
-    #if defined(_WIN32)
-        const char *scan_start = (const char *)&_elab_export_start + sizeof(elab_export_t);
-        const char *scan_end   = (const char *)&_elab_export_end;
-        uint32_t idx = 0;
-        for (const char *p = scan_start; p <= scan_end - sizeof(elab_export_t); p += 16)
-        {
-            const elab_export_t *candidate = (const elab_export_t *)p;
-            if (candidate->magic_head == EXPORT_ID_INIT &&
-                candidate->magic_tail == EXPORT_ID_INIT)
-            {
-                if (idx < ELAB_MAX_EXPORTS)
-                {
-                    _mingw_init_table[idx] = *candidate;
-                    if (_mingw_init_table[idx].level >= 0 &&
-                        _mingw_init_table[idx].level > export_level_max)
-                    {
-                        export_level_max = _mingw_init_table[idx].level;
-                    }
-                    idx++;
-                }
-            }
-        }
-        export_init_table = _mingw_init_table;
-        count_export_init = idx;
-    #else
-        export_init_table = &__start_elab_export;
-        uint32_t total = (uint32_t)((&__stop_elab_export - &__start_elab_export)) / sizeof(elab_export_t);
-        uint32_t i = 0;
-        for (; i < total; i++)
-        {
-            if (export_init_table[i].magic_head == EXPORT_ID_INIT &&
-                export_init_table[i].magic_tail == EXPORT_ID_INIT)
-            {
-                if (export_init_table[i].level >= 0 &&
-                    export_init_table[i].level > export_level_max)
-                {
-                    export_level_max = export_init_table[i].level;
-                }
-            }
-        }
-        count_export_init = total;
-    #endif
-#else
+{
     elab_export_t *func_block = (elab_export_t *)&init_module_null_init;
     elab_pointer_t address_last;
-    
+
     while (1)
     {
         address_last = ((elab_pointer_t)func_block - sizeof(elab_export_t));
@@ -315,7 +253,6 @@ static void _get_init_export_table(void)
         }
     }
     count_export_init = i;
-#endif
 }
 
 /**
@@ -323,51 +260,7 @@ static void _get_init_export_table(void)
   */
 static void _get_poll_export_table(void)
 {
-#if defined(__GNUC__)
-    #if defined(_WIN32)
-        const char *scan_start = (const char *)&_expoll_start + sizeof(elab_export_t);
-        const char *scan_end   = (const char *)&_expoll_end;
-        uint32_t idx = 0;
-        for (const char *p = scan_start; p <= scan_end - sizeof(elab_export_t); p += 16)
-        {
-            const elab_export_t *candidate = (const elab_export_t *)p;
-            if (candidate->magic_head == EXPORT_ID_POLL &&
-                candidate->magic_tail == EXPORT_ID_POLL)
-            {
-                if (idx < ELAB_MAX_EXPORTS)
-                {
-                    _mingw_poll_table[idx] = *candidate;
-                    assert_name(_mingw_poll_table[idx].period_ms <= ELAB_POLL_PERIOD_MAX,
-                                _mingw_poll_table[idx].name);
-                    elab_export_poll_data_t *data =
-                        (elab_export_poll_data_t *)_mingw_poll_table[idx].data;
-                    data->timeout_ms = elab_time_ms() + _mingw_poll_table[idx].period_ms;
-                    idx++;
-                }
-            }
-        }
-        export_poll_table = _mingw_poll_table;
-        count_export_poll = idx;
-    #else
-        export_poll_table = &__start_expoll;
-        uint32_t total = (uint32_t)((&__stop_expoll - &__start_expoll)) / sizeof(elab_export_t);
-        uint32_t i = 0;
-        for (; i < total; i++)
-        {
-            if (export_poll_table[i].magic_head == EXPORT_ID_POLL &&
-                export_poll_table[i].magic_tail == EXPORT_ID_POLL)
-            {
-                assert_name(export_poll_table[i].period_ms <= ELAB_POLL_PERIOD_MAX,
-                            export_poll_table[i].name);
-                elab_export_poll_data_t *data =
-                    (elab_export_poll_data_t *)export_poll_table[i].data;
-                data->timeout_ms = elab_time_ms() + export_poll_table[i].period_ms;
-            }
-        }
-        count_export_poll = total;
-    #endif
-#else
-    elab_export_t *func_block = ((elab_export_t *)&poll_module_null_init);
+    elab_export_t *func_block = (elab_export_t *)&poll_module_null_init;
     elab_pointer_t address_last;
 
     while (1)
@@ -402,7 +295,6 @@ static void _get_poll_export_table(void)
         }
     }
     count_export_poll = i;
-#endif
 }
 
 /**
