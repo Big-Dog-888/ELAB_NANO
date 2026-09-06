@@ -22,7 +22,7 @@ extern "C" {
   * @param  size  Size of the buffer.
   * @retval CRC32 value.
   */
-uint32_t elib_crc32(uint32_t crc, void *data, uint32_t size);
+uint32_t elib_crc32(uint32_t crc, const void *data, uint32_t size);
 
 #ifdef __cplusplus
 }

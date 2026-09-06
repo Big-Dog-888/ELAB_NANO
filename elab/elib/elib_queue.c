@@ -128,7 +128,7 @@ void elib_queue_clear(elib_queue_t * const me)
   * @param  me          this pointer
   * @retval Free size.
   */
-uint16_t elib_queue_free_size(elib_queue_t * const me)
+uint16_t elib_queue_free_size(const elib_queue_t * const me)
 {
     return me->size_free;
 }
@@ -138,7 +138,7 @@ uint16_t elib_queue_free_size(elib_queue_t * const me)
   * @param  me          this pointer
   * @retval Empty or not.
   */
-bool elib_queue_is_empty(elib_queue_t * const me)
+bool elib_queue_is_empty(const elib_queue_t * const me)
 {
     return me->size_free == me->capacity ? true : false;
 }
@@ -148,7 +148,7 @@ bool elib_queue_is_empty(elib_queue_t * const me)
   * @param  me          this pointer
   * @retval Full or not.
   */
-bool elib_queue_is_full(elib_queue_t * const me)
+bool elib_queue_is_full(const elib_queue_t * const me)
 {
     return me->size_free == 0 ? true : false;
 }

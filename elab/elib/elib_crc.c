@@ -62,7 +62,7 @@ static const uint32_t crc32_table[] =
   * @param  size        : Size of the buffer.
   * @retval             : CRC32 value.
   */
-uint32_t elib_crc32(uint32_t crc, void *data, uint32_t size)
+uint32_t elib_crc32(uint32_t crc, const void *data, uint32_t size)
 {
     const uint8_t * p = (const uint8_t *)data;
     crc = (crc ^ (~0U));
