@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y cmake build-essential expect cppcheck
+        sudo apt-get install -y cmake build-essential cppcheck
         
         # 检查 cppcheck 是否支持 MISRA 插件
         echo "Checking cppcheck MISRA support:"
@@ -122,102 +122,28 @@ jobs:
     - name: Run unity_test
       run: |
         cd example/unity_test/build
-        # 创建 expect 脚本来处理交互式程序并检测测试结果
-        cat > run_unity_test.exp << 'EOF'
-        #!/usr/bin/expect -f
-        # 匹配Unity测试结果超时时间
-        set timeout 30
         
-        # 启动程序
-        spawn sudo ./unity_example
+        echo "Running unity tests..."
+        echo "unity" | timeout 30 ./unity_example > test_output.txt 2>&1 || true
         
-        # 等待程序完全启动并稳定
-        sleep 3
+        echo "========= Test Output ========="
+        cat test_output.txt
+        echo "==============================="
         
-        # 发送 unity 命令
-        send "unity\r"
+        echo ""
+        echo "=== Unity Test Results ==="
         
-        # 等待测试结果
-        expect {
-          # 匹配成功的测试结果
-          -re {([0-9]+) Tests ([0-9]+) Failures ([0-9]+) Ignored} {
-            set tests $expect_out(1,string)
-            set failures $expect_out(2,string)
-            set ignored $expect_out(3,string)
-            
-            puts "\n=== Unity Test Results ==="
-            puts "Tests: $tests"
-            puts "Failures: $failures" 
-            puts "Ignored: $ignored"
-            
-            # 继续等待最终状态 (OK/FAIL)
-            expect {
-              "OK" {
-                puts "Status: PASSED (All tests successful)"
-                puts "=========================\n"
-                send "\x03"
-                # 给程序一点时间响应 Ctrl+C
-                sleep 2
-                exit 0
-              }
-              "FAIL" {
-                puts "Status: FAILED (Some tests failed)"
-                puts "=========================\n"
-                send "\x03"
-                # 给程序一点时间响应 Ctrl+C
-                sleep 2
-                exit 1
-              }
-              timeout {
-                puts "Status: TIMEOUT (No final status received)"
-                puts "Trying to terminate program gracefully..."
-                puts "=========================\n"
-                send "\x03"
-                # 给程序一点时间响应 Ctrl+C
-                sleep 2
-                exit 1
-              }
-            }
-          }
-          
-          # 如果没有匹配到测试结果格式
-          timeout {
-            puts "\n=== Unity Test Results ==="
-            puts "Status: TIMEOUT - No test results detected"
-            puts "Trying to terminate program gracefully..."
-            puts "=========================\n"
-            send "\x03"
-            # 给程序一点时间响应 Ctrl+C
-            sleep 2
-            expect eof
-            exit 1
-          }
-          
-          eof {
-            puts "\n=== Unity Test Results ==="
-            puts "Status: COMPLETED - Check output above for results"
-            puts "=========================\n"
-            exit 0
-          }
-        }
-        EOF
-        
-        # 运行 expect 脚本并捕获退出码
-        chmod +x run_unity_test.exp
-        if ./run_unity_test.exp; then
-          echo "✅ Unity tests PASSED: All tests completed successfully!"
+        if grep -q "FAIL" test_output.txt; then
+          echo "❌ Status: FAILED (Some tests failed)"
+          echo "   Check the detailed output above for failures"
+          exit 1
+        elif grep -q "OK" test_output.txt; then
+          echo "✅ Status: PASSED (All tests successful)"
         else
-          echo "❌ Unity tests FAILED: Check the detailed results above"
-          echo "   Possible reasons:"
-          echo "   - Some unit tests failed"
-          echo "   - Test execution timed out"
-          echo "   - Program crashed or hung"
+          echo "❌ Status: UNKNOWN (Could not determine test result)"
+          echo "   The output does not contain OK or FAIL"
           exit 1
         fi
-        
-        # 清理
-        rm -f run_unity_test.exp
-        #continue-on-error: true  #测试流在出现错误时也会继续 (不报错)
     
     - name: Upload Static Analysis Report
       if: always()
