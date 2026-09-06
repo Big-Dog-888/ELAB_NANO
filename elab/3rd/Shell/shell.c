@@ -51,70 +51,77 @@ SHELL_USED const ShellCommand shellUserDefault SHELL_SECTION("shellCommand") =
 #endif
 
 #if defined(__GNUC__)
-    #if defined(_WIN32)
-        #define SHELL_MAX_EXPORTS 64
-        static ShellCommand _mingw_shell_cmd_table[SHELL_MAX_EXPORTS];
-        ELAB_SECTION_START("shellCommand") const ShellCommand _shell_cmd_start = {0};
-        ELAB_SECTION_END("shellCommand")   const ShellCommand _shell_cmd_end   = {0};
-        static ShellCommand *_get_shell_cmd_base(void)
+    #define SHELL_MAX_EXPORTS 64
+    static ShellCommand _shell_cmd_table[SHELL_MAX_EXPORTS];
+    ELAB_USED ELAB_SECTION("shellCommand") const ShellCommand _shell_cmd_null = {
+        .magic_head = SHELL_MAGIC_NUM,
+        .magic_tail = SHELL_MAGIC_NUM,
+    };
+
+    static const ShellCommand *_get_shell_cmd_start(void)
+    {
+        const ShellCommand *p = &_shell_cmd_null;
+        while (1)
         {
-            const char *scan_start = (const char *)&_shell_cmd_start + sizeof(ShellCommand);
-            const char *scan_end   = (const char *)&_shell_cmd_end;
-            uint16_t idx = 0;
-            for (const char *p = scan_start; p <= scan_end - sizeof(ShellCommand); p += 16)
+            const ShellCommand *prev = (const ShellCommand *)((const char *)p - sizeof(ShellCommand));
+            if (prev->magic_head == SHELL_MAGIC_NUM &&
+                prev->magic_tail == SHELL_MAGIC_NUM)
             {
-                const ShellCommand *candidate = (const ShellCommand *)p;
-                if (candidate->magic_head == SHELL_MAGIC_NUM &&
-                    candidate->magic_tail == SHELL_MAGIC_NUM)
+                p = prev;
+            }
+            else
+            {
+                break;
+            }
+        }
+        return p;
+    }
+
+    static ShellCommand *_get_shell_cmd_base(void)
+    {
+        const ShellCommand *start = _get_shell_cmd_start();
+        uint16_t idx = 0;
+        const ShellCommand *p = start;
+        while (1)
+        {
+            if (p->magic_head == SHELL_MAGIC_NUM &&
+                p->magic_tail == SHELL_MAGIC_NUM)
+            {
+                if (idx < SHELL_MAX_EXPORTS)
                 {
-                    if (idx < SHELL_MAX_EXPORTS)
-                    {
-                        _mingw_shell_cmd_table[idx] = *candidate;
-                        idx++;
-                    }
+                    _shell_cmd_table[idx] = *p;
+                    idx++;
                 }
             }
-            return _mingw_shell_cmd_table;
-        }
-        static uint16_t _get_shell_cmd_count(void)
-        {
-            const char *scan_start = (const char *)&_shell_cmd_start + sizeof(ShellCommand);
-            const char *scan_end   = (const char *)&_shell_cmd_end;
-            uint16_t count = 0;
-            for (const char *p = scan_start; p <= scan_end - sizeof(ShellCommand); p += 16)
+            else
             {
-                const ShellCommand *candidate = (const ShellCommand *)p;
-                if (candidate->magic_head == SHELL_MAGIC_NUM &&
-                    candidate->magic_tail == SHELL_MAGIC_NUM)
-                {
-                    count++;
-                }
+                break;
             }
-            return count;
+            p = (const ShellCommand *)((const char *)p + sizeof(ShellCommand));
         }
-    #else
-        extern ShellCommand __start_shellCommand;
-        extern ShellCommand __stop_shellCommand;
-        static ShellCommand *_get_shell_cmd_base(void)
+        return _shell_cmd_table;
+    }
+
+    static uint16_t _get_shell_cmd_count(void)
+    {
+        const ShellCommand *start = _get_shell_cmd_start();
+        uint16_t count = 0;
+        const ShellCommand *p = start;
+        while (1)
         {
-            return &__start_shellCommand;
-        }
-        static uint16_t _get_shell_cmd_count(void)
-        {
-            uint16_t total = (uint16_t)((&__stop_shellCommand - &__start_shellCommand)) / sizeof(ShellCommand);
-            uint16_t count = 0;
-            ShellCommand *base = &__start_shellCommand;
-            for (uint16_t i = 0; i < total; i++)
+            if (p->magic_head == SHELL_MAGIC_NUM &&
+                p->magic_tail == SHELL_MAGIC_NUM)
             {
-                if (base[i].magic_head == SHELL_MAGIC_NUM &&
-                    base[i].magic_tail == SHELL_MAGIC_NUM)
-                {
-                    count ++;
-                }
+                count++;
             }
-            return count;
+            else
+            {
+                break;
+            }
+            p = (const ShellCommand *)((const char *)p + sizeof(ShellCommand));
         }
-    #endif
+        return count;
+    }
 #endif
 
 /**
