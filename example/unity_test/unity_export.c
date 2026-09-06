@@ -14,9 +14,9 @@
 /**
   * @brief  Define test fixture tear down function of device core
   */
-static int unity_export(int argc, const char * argv[])
+static int unity_export(int argc, char *argv[])
 {
-    return UnityMain(argc, argv, elab_unit_test);
+    return UnityMain(argc, (const char **)argv, elab_unit_test);
 }
 
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0) | SHELL_CMD_TYPE(SHELL_TYPE_CMD_MAIN),
@@ -25,5 +25,3 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0) | SHELL_CMD_TYPE(SHELL_TYPE_CMD_MAIN),
                     Run all unit tests);
 
 /* ----------------------------- end of file -------------------------------- */
-
-
