@@ -200,7 +200,10 @@ osThreadId_t osThreadNew(osThreadFunc_t func, void *argument, const osThreadAttr
     assert(ret == 0);
 
     ret = pthread_attr_setschedpolicy(&thread_attr, SCHED_RR);
-    assert(ret == 0);
+    if (ret != 0)
+    {
+        ret = pthread_attr_setschedpolicy(&thread_attr, SCHED_OTHER);
+    }
 
     uint32_t stack_size = 40960;
     if (attr != NULL)
@@ -215,12 +218,26 @@ osThreadId_t osThreadNew(osThreadFunc_t func, void *argument, const osThreadAttr
     ret = pthread_attr_setstacksize(&thread_attr, stack_size);
     assert(ret == 0);
     ret = pthread_attr_setschedparam(&thread_attr, &param);
-    assert(ret == 0);
+    if (ret != 0)
+    {
+        param.sched_priority = 0;
+        pthread_attr_setschedparam(&thread_attr, &param);
+    }
     ret = pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
     assert(ret == 0);
     ret = pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
     assert(ret == 0);
     ret = pthread_create(&thread, &thread_attr, (os_pthread_func_t)func, argument);
+    if (ret != 0)
+    {
+        pthread_attr_destroy(&thread_attr);
+        ret = pthread_attr_init(&thread_attr);
+        pthread_attr_setstacksize(&thread_attr, stack_size);
+        pthread_attr_setschedpolicy(&thread_attr, SCHED_OTHER);
+        param.sched_priority = 0;
+        pthread_attr_setschedparam(&thread_attr, &param);
+        ret = pthread_create(&thread, &thread_attr, (os_pthread_func_t)func, argument);
+    }
     assert(ret == 0);
 
     pthread_attr_destroy(&thread_attr);
