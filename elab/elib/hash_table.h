@@ -42,7 +42,7 @@ void hash_table_init(hash_table_t * const me,
 elab_err_t hash_table_add(hash_table_t * const me, const char *name, void *data);
 elab_err_t hash_table_remove(hash_table_t * const me, const char *name);
 void *hash_table_get(hash_table_t * const me, const char *name);
-bool hash_table_existent(hash_table_t * const me, const char *name);
+bool hash_table_existent(const hash_table_t * const me, const char *name);
 
 #ifdef __cplusplus
 }
