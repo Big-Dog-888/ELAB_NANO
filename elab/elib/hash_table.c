@@ -159,7 +159,7 @@ void *hash_table_get(hash_table_t * const me, const char *name)
   * @param  name        The given key name.
   * @retval True or false.
   */
-bool hash_table_existent(hash_table_t * const me, const char *name)
+bool hash_table_existent(const hash_table_t * const me, const char *name)
 {
     return hash_table_index(me, name) == ELAB_ERROR ? false : true;
 }
@@ -268,12 +268,12 @@ static uint32_t _hash_time33(const char *str)
 static uint32_t _hash_elf(const char *str)
 {
     uint32_t hash = 0;
-    uint32_t x;
  
     while (*str)
     {
         hash = (hash << 4) + (*str++);
-        if ((x = hash & 0xF0000000L) != 0)
+        uint32_t x = hash & 0xF0000000L;
+        if (x != 0)
         {
             hash ^= (x >> 24);
             hash &= ~x;
