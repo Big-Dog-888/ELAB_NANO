@@ -111,6 +111,7 @@ jobs:
     - name: Configure CMake for unity_test
       run: |
         cd example/unity_test
+        rm -rf build
         cmake -B build -DCMAKE_BUILD_TYPE=Debug
     
     - name: Build unity_test
