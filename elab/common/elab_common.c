@@ -281,9 +281,6 @@ static void _entry_getch(void *para)
 
 #endif
 
-#endif
-
-
 
 
 
