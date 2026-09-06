@@ -148,7 +148,10 @@ static void signal_handler(int sig)
     
     elab_exit();
 #if defined(__linux__)
-    system("stty echo");
+    if (isatty(STDIN_FILENO))
+    {
+        system("stty echo");
+    }
 #endif
     printf("\033[0;0m\n");
     exit(-1);
@@ -244,7 +247,8 @@ static void _get_init_export_table(void)
                 if (idx < ELAB_MAX_EXPORTS)
                 {
                     _mingw_init_table[idx] = *candidate;
-                    if (_mingw_init_table[idx].level > export_level_max)
+                    if (_mingw_init_table[idx].level >= 0 &&
+                        _mingw_init_table[idx].level > export_level_max)
                     {
                         export_level_max = _mingw_init_table[idx].level;
                     }
@@ -263,7 +267,8 @@ static void _get_init_export_table(void)
             if (export_init_table[i].magic_head == EXPORT_ID_INIT &&
                 export_init_table[i].magic_tail == EXPORT_ID_INIT)
             {
-                if (export_init_table[i].level > export_level_max)
+                if (export_init_table[i].level >= 0 &&
+                    export_init_table[i].level > export_level_max)
                 {
                     export_level_max = export_init_table[i].level;
                 }
@@ -294,7 +299,8 @@ static void _get_init_export_table(void)
         if (export_init_table[i].magic_head == EXPORT_ID_INIT &&
             export_init_table[i].magic_tail == EXPORT_ID_INIT)
         {
-            if (export_init_table[i].level > export_level_max)
+            if (export_init_table[i].level >= 0 &&
+                export_init_table[i].level > export_level_max)
             {
                 export_level_max = export_init_table[i].level;
             }
