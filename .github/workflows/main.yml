@@ -11,20 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     
     - name: Install dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y cmake build-essential cppcheck
         
-        # 检查 cppcheck 是否支持 MISRA 插件
+        # 检�?cppcheck 是否支持 MISRA 插件
         echo "Checking cppcheck MISRA support:"
         cppcheck --help | grep -i misra || echo "MISRA addon may need manual setup"
         
     - name: Setup MISRA C Configuration
       run: |
-        # 创建 cppcheck 配置文件（用于 MISRA 检查）
+        # 创建 cppcheck 配置文件（用�?MISRA 检查）
         cat > cppcheck.cfg << 'EOF'
         # Cppcheck configuration for MISRA C
         [common]
@@ -35,13 +35,13 @@ jobs:
         enable=all
         
         [suppressions]
-        # 抑制一些对嵌入式系统不适用的规则
+        # 抑制一些对嵌入式系统不适用的规�?
         missingIncludeSystem
         unmatchedSuppression
         unusedFunction
         EOF
         
-        # 检查项目中的 C 文件
+        # 检查项目中�?C 文件
         echo "Found C files for analysis:"
         find elab/ -name "*.c" -not -path "*/3rd/Unity/*" | head -10
     
@@ -49,7 +49,7 @@ jobs:
       run: |
         echo "🔍 Running MISRA C compliance check with cppcheck..."
         
-        # 首先尝试基础的 cppcheck 分析
+        # 首先尝试基础�?cppcheck 分析
         echo "Running basic cppcheck analysis..."
         cppcheck --enable=all \
           --inconclusive \
@@ -66,7 +66,7 @@ jobs:
           elab/elib/ \
           2> cppcheck-report.xml || true
         
-        # 尝试运行 MISRA 检查（如果支持）
+        # 尝试运行 MISRA 检查（如果支持�?
         echo "Attempting MISRA C analysis..."
         if cppcheck --addon=misra --help > /dev/null 2>&1; then
           echo "MISRA addon available, running MISRA analysis..."
@@ -99,13 +99,13 @@ jobs:
           echo "Warnings: $warning_count"
           
           if [ $error_count -gt 0 ]; then
-            echo "❌ Code quality check failed due to errors"
+            echo "�?Code quality check failed due to errors"
             echo "Review the detailed report for issues that must be fixed"
           else
-            echo "✅ No critical issues found"
+            echo "�?No critical issues found"
           fi
         else
-          echo "✅ No issues detected"
+          echo "�?No issues detected"
         fi
     
     - name: Configure CMake for unity_test
@@ -134,20 +134,20 @@ jobs:
         echo "=== Unity Test Results ==="
         
         if grep -q "FAIL" test_output.txt; then
-          echo "❌ Status: FAILED (Some tests failed)"
+          echo "�?Status: FAILED (Some tests failed)"
           echo "   Check the detailed output above for failures"
           exit 1
         elif grep -q "OK" test_output.txt; then
-          echo "✅ Status: PASSED (All tests successful)"
+          echo "�?Status: PASSED (All tests successful)"
         else
-          echo "❌ Status: UNKNOWN (Could not determine test result)"
+          echo "�?Status: UNKNOWN (Could not determine test result)"
           echo "   The output does not contain OK or FAIL"
           exit 1
         fi
     
     - name: Upload Static Analysis Report
       if: always()
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: static-analysis-report
         path: |
@@ -170,24 +170,24 @@ jobs:
           echo "🚨 Critical errors: $critical_errors"
           
           if [ $critical_errors -gt 0 ]; then
-            echo "❌ Code quality check: FAILED"
+            echo "�?Code quality check: FAILED"
             echo "   Critical issues must be fixed before release"
           elif [ $total_issues -gt 0 ]; then
             echo "⚠️  Code quality check: WARNINGS"
             echo "   Some issues found, review recommended"
           else
-            echo "✅ Code quality check: PASSED"
+            echo "�?Code quality check: PASSED"
           fi
         else
-          echo "✅ Code quality check: PASSED (no issues)"
+          echo "�?Code quality check: PASSED (no issues)"
         fi
         
         echo ""
         echo "📁 Detailed analysis report uploaded as artifact"
-        echo "� Use cppcheck locally for faster development feedback"
+        echo "�?Use cppcheck locally for faster development feedback"
     
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: unity-test-build
         path: |
