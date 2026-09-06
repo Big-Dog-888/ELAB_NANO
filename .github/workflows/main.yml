@@ -17,16 +17,10 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y cmake build-essential cppcheck
-        
-        # 检�?cppcheck 是否支持 MISRA 插件
-        echo "Checking cppcheck MISRA support:"
-        cppcheck --help | grep -i misra || echo "MISRA addon may need manual setup"
-        
+
     - name: Setup MISRA C Configuration
       run: |
-        # 创建 cppcheck 配置文件（用�?MISRA 检查）
         cat > cppcheck.cfg << 'EOF'
-        # Cppcheck configuration for MISRA C
         [common]
         language=c
         std=c99
@@ -35,22 +29,17 @@ jobs:
         enable=all
         
         [suppressions]
-        # 抑制一些对嵌入式系统不适用的规�?
         missingIncludeSystem
         unmatchedSuppression
         unusedFunction
         EOF
         
-        # 检查项目中�?C 文件
         echo "Found C files for analysis:"
         find elab/ -name "*.c" -not -path "*/3rd/Unity/*" | head -10
     
     - name: MISRA C Static Analysis
       run: |
-        echo "🔍 Running MISRA C compliance check with cppcheck..."
-        
-        # 首先尝试基础�?cppcheck 分析
-        echo "Running basic cppcheck analysis..."
+        echo "Running cppcheck analysis..."
         cppcheck --enable=all \
           --inconclusive \
           --xml \
@@ -66,7 +55,6 @@ jobs:
           elab/elib/ \
           2> cppcheck-report.xml || true
         
-        # 尝试运行 MISRA 检查（如果支持�?
         echo "Attempting MISRA C analysis..."
         if cppcheck --addon=misra --help > /dev/null 2>&1; then
           echo "MISRA addon available, running MISRA analysis..."
@@ -85,9 +73,8 @@ jobs:
           cp cppcheck-report.xml misra-report.xml
         fi
         
-        # 分析报告
-        echo "📊 Static Analysis Results:"
-        echo "=========================="
+        echo "Static Analysis Results:"
+        echo "========================"
         
         if [ -s cppcheck-report.xml ]; then
           total_issues=$(grep -o "<error " cppcheck-report.xml | wc -l)
@@ -99,13 +86,12 @@ jobs:
           echo "Warnings: $warning_count"
           
           if [ $error_count -gt 0 ]; then
-            echo "�?Code quality check failed due to errors"
-            echo "Review the detailed report for issues that must be fixed"
+            echo "Code quality check failed due to errors"
           else
-            echo "�?No critical issues found"
+            echo "No critical issues found"
           fi
         else
-          echo "�?No issues detected"
+          echo "No issues detected"
         fi
     
     - name: Configure CMake for unity_test
@@ -134,14 +120,14 @@ jobs:
         echo "=== Unity Test Results ==="
         
         if grep -q "FAIL" test_output.txt; then
-          echo "�?Status: FAILED (Some tests failed)"
-          echo "   Check the detailed output above for failures"
+          echo "Status: FAILED (Some tests failed)"
+          echo "Check the detailed output above for failures"
           exit 1
         elif grep -q "OK" test_output.txt; then
-          echo "�?Status: PASSED (All tests successful)"
+          echo "Status: PASSED (All tests successful)"
         else
-          echo "�?Status: UNKNOWN (Could not determine test result)"
-          echo "   The output does not contain OK or FAIL"
+          echo "Status: UNKNOWN (Could not determine test result)"
+          echo "The output does not contain OK or FAIL"
           exit 1
         fi
     
@@ -159,32 +145,29 @@ jobs:
     - name: Code Quality Summary
       if: always()
       run: |
-        echo "📋 Code Quality Analysis Summary:"
+        echo "Code Quality Analysis Summary:"
         echo "================================"
         
         if [ -f cppcheck-report.xml ] && [ -s cppcheck-report.xml ]; then
           total_issues=$(grep -o "<error " cppcheck-report.xml | wc -l)
           critical_errors=$(grep -o 'severity="error"' cppcheck-report.xml | wc -l)
           
-          echo "🔍 Total issues found: $total_issues"
-          echo "🚨 Critical errors: $critical_errors"
+          echo "Total issues found: $total_issues"
+          echo "Critical errors: $critical_errors"
           
           if [ $critical_errors -gt 0 ]; then
-            echo "�?Code quality check: FAILED"
-            echo "   Critical issues must be fixed before release"
+            echo "Code quality check: FAILED"
           elif [ $total_issues -gt 0 ]; then
-            echo "⚠️  Code quality check: WARNINGS"
-            echo "   Some issues found, review recommended"
+            echo "Code quality check: WARNINGS"
           else
-            echo "�?Code quality check: PASSED"
+            echo "Code quality check: PASSED"
           fi
         else
-          echo "�?Code quality check: PASSED (no issues)"
+          echo "Code quality check: PASSED (no issues)"
         fi
         
         echo ""
-        echo "📁 Detailed analysis report uploaded as artifact"
-        echo "�?Use cppcheck locally for faster development feedback"
+        echo "Detailed analysis report uploaded as artifact"
     
     - name: Upload build artifacts
       uses: actions/upload-artifact@v5
