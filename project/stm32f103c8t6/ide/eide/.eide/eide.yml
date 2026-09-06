@@ -93,6 +93,10 @@ virtualFolder:
             - path: ../../../../elab/elib/elib_queue.c
             - path: ../../../../elab/elib/hash_table.c
           folders: []
+        - name: os
+          files:
+            - path: ../../../../elab/os/mcu_noos/cmsis_os2.c
+          folders: []
 dependenceList: []
 outDir: build
 miscInfo:
@@ -105,6 +109,7 @@ targets:
         - STM32F103xB
       incList:
         - .
+        - ../../usr
         - ../../../../mcu/stm32f103c8t6/STM32F1xx_HAL_Driver/Inc
         - ../../../../mcu/stm32f103c8t6/CMSIS/Include
         - ../../../../mcu/stm32f103c8t6/CMSIS/Device/ST/STM32F1xx/Include
@@ -120,6 +125,9 @@ targets:
         - ../../../../elab/3rd/ringbuf
         - ../../../../elab/3rd/state_machine
         - ../../../../elab/3rd/Shell
+        - ../../../../elab/3rd/FreeRTOS
+        - ../../../../elab/os
+        - ../../../../elab/os/mcu_noos
       libList: []
     excludeList: []
     settings:
@@ -145,7 +153,7 @@ targets:
             warnings: all-warnings
           global:
             output-debug-info: enable
-            use-microLIB: false
+            use-microLIB: true
           linker:
             $outputTaskExcludes:
               - .bin
@@ -246,7 +254,7 @@ targets:
             optimization: level-0
           global:
             output-debug-info: enable
-            use-microLIB: false
+            use-microLIB: true
           linker:
             $outputTaskExcludes:
               - .bin

@@ -172,35 +172,35 @@ void elab_run(void)
     signal(SIGSEGV, signal_handler);
 #endif
 
-    printf("[DEBUG] before _get_init_export_table\n"); fflush(stdout);
     _get_init_export_table();
-    printf("[DEBUG] after _get_init_export_table, level_max=%d, count=%u, table=%p\n",
-           export_level_max, count_export_init, (void *)export_init_table); fflush(stdout);
     _get_poll_export_table();
-    printf("[DEBUG] after _get_poll_export_table, count=%u\n", count_export_poll); fflush(stdout);
 
 #if (ELAB_RTOS_CMSIS_OS_EN != 0)
 
-    printf("[DEBUG] before osKernelInitialize\n"); fflush(stdout);
     osKernelInitialize();
-    printf("[DEBUG] before osThreadNew\n"); fflush(stdout);
     osThreadNew(_entry_start_poll, NULL, &thread_attr_export_poll);
-    printf("[DEBUG] before osKernelStart\n"); fflush(stdout);
 #endif
 #if (ELAB_RTOS_CMSIS_OS_EN != 0)
 
     osKernelStart();
 
+    for (uint8_t level = 0; level <= export_level_max; level ++)
+    {
+        _init_func_execute(level);
+    }
+    while (1)
+    {
+        _poll_func_execute();
+        osDelay(10);
+    }
+
 #else
     
     /* Initialize all module in eLab. */
-    printf("[DEBUG] before init loop, level_max=%d\n", export_level_max); fflush(stdout);
     for (uint8_t level = 0; level <= export_level_max; level ++)
     {
-        printf("[DEBUG] _init_func_execute level=%d\n", level); fflush(stdout);
         _init_func_execute(level);
     }
-    printf("start with NO OS \r\n");
     /* Start polling function in metal eLab. */
     while (1)
     {
@@ -491,15 +491,13 @@ static void _entry_start_poll(void *para)
     {
         _init_func_execute(level);
     }
-    printf("start with CMSIS OS \r\n");
     /* Start polling function in metal eLab. */
     while (1)
     {
         _poll_func_execute();
 
 #if (ELAB_RTOS_CMSIS_OS_EN != 0 )
-        osDelay(10); //在linux/win非实时系统下此任务sDelay()时间不能太短 建议>10
-
+        osDelay(10);
 #endif
     }
 }

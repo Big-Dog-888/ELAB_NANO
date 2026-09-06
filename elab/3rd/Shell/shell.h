@@ -473,7 +473,12 @@ typedef struct
 {
     void *var;                                                  /**< 变量引用 */
     int (*get)(void *);                                         /**< 变量get方法 */
-    int (*set)(...);                                            /**< 变量set方法 */
+    int (*set)(
+#ifdef __ARMCC_VERSION
+    );                                                           /**< 变量set方法 */
+#else
+    ...);                                                        /**< 变量set方法 */
+#endif
 } ShellNodeVarAttr;
 
 

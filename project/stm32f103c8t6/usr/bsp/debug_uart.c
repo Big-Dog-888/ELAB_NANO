@@ -180,20 +180,34 @@ void elab_debug_uart_buffer_clear(void)
 
 
 
-#ifdef __ARMCC_VERSION //  ARM Compiler
-    #pragma import __use_no_semihosting_swi
+#ifdef __ARMCC_VERSION
     void _sys_exit(int x)
     {
         (void)x;
+        while (1);
     }
-    struct __FILE { int handle; };
-    FILE __stdout;
+
+    int _ttywrch(int ch)
+    {
+        uint8_t c = (uint8_t)ch;
+        elab_debug_uart_send(&c, 1);
+        return ch;
+    }
 
     int fputc(int ch, FILE *f)
     {
         (void)f;
-        elab_debug_uart_send(&ch, 1);
+        uint8_t c = (uint8_t)ch;
+        elab_debug_uart_send(&c, 1);
         return ch;
+    }
+
+    int fgetc(FILE *f)
+    {
+        (void)f;
+        uint8_t c = 0;
+        elab_debug_uart_receive(&c, 1);
+        return c;
     }
 #elif defined(__GNUC__) // GCC Compiler
   #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
