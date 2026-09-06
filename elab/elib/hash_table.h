@@ -39,11 +39,10 @@ void hash_table_destroy(hash_table_t * const me);
 void hash_table_init(hash_table_t * const me,
                             hash_table_data_t *table,
                             uint32_t capacity);
-elab_err_t hash_table_add(hash_table_t * const me, char *name, void *data);
-elab_err_t hash_table_remove(hash_table_t * const me, char *name);
-void *hash_table_get(hash_table_t * const me, char *name);
-bool hash_table_existent(hash_table_t * const me, char *name);
-int32_t hash_table_index(hash_table_t * const me, char *name);
+elab_err_t hash_table_add(hash_table_t * const me, const char *name, void *data);
+elab_err_t hash_table_remove(hash_table_t * const me, const char *name);
+void *hash_table_get(hash_table_t * const me, const char *name);
+bool hash_table_existent(hash_table_t * const me, const char *name);
 
 #ifdef __cplusplus
 }

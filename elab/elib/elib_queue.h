@@ -31,9 +31,9 @@ uint16_t elib_queue_pull(elib_queue_t * const me, void *buffer, uint16_t size);
 uint16_t elib_queue_pop(elib_queue_t * const me, uint16_t size);
 void elib_queue_clear(elib_queue_t * const me);
 uint16_t elib_queue_pull_pop(elib_queue_t * const me, void *buffer, uint16_t size);
-uint16_t elib_queue_free_size(elib_queue_t * const me);
-bool elib_queue_is_empty(elib_queue_t * const me);
-bool elib_queue_is_full(elib_queue_t * const me);
+uint16_t elib_queue_free_size(const elib_queue_t * const me);
+bool elib_queue_is_empty(const elib_queue_t * const me);
+bool elib_queue_is_full(const elib_queue_t * const me);
 
 #ifdef __cplusplus
 }

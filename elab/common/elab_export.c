@@ -219,12 +219,11 @@ static void elab_exit(void)
 static void _get_init_export_table(void)
 {
     elab_export_t *func_block = (elab_export_t *)&init_module_null_init;
-    elab_pointer_t address_last;
 
     while (1)
     {
-        address_last = ((elab_pointer_t)func_block - sizeof(elab_export_t));
-        elab_export_t *table = (elab_export_t *)address_last;
+        elab_export_t *table =
+            (elab_export_t *)((elab_pointer_t)func_block - sizeof(elab_export_t));
         if (table->magic_head != EXPORT_ID_INIT ||
             table->magic_tail != EXPORT_ID_INIT)
         {
@@ -261,12 +260,11 @@ static void _get_init_export_table(void)
 static void _get_poll_export_table(void)
 {
     elab_export_t *func_block = (elab_export_t *)&poll_module_null_init;
-    elab_pointer_t address_last;
 
     while (1)
     {
-        address_last = ((elab_pointer_t)func_block - sizeof(elab_export_t));
-        elab_export_t *table = (elab_export_t *)address_last;
+        elab_export_t *table =
+            (elab_export_t *)((elab_pointer_t)func_block - sizeof(elab_export_t));
         if (table->magic_head != EXPORT_ID_POLL ||
             table->magic_tail != EXPORT_ID_POLL)
         {
@@ -348,15 +346,12 @@ static void _exit_func_execute(int8_t level)
   */
 static void _poll_func_execute(void)
 {
-    elab_export_poll_data_t *data;
-    
-    /* Execute the poll function in the specific level. */
     for (uint32_t i = 0; i < count_export_poll; i ++)
     {
-        data = export_poll_table[i].data;
-
         while (1)
         {
+            elab_export_poll_data_t *data =
+                (elab_export_poll_data_t *)export_poll_table[i].data;
             uint64_t _time = (uint64_t)elab_time_ms();
             if (_time < (uint64_t)data->timeout_ms &&
                 ((uint64_t)data->timeout_ms - _time) <=

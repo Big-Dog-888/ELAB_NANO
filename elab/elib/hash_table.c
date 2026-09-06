@@ -13,9 +13,10 @@ ELAB_TAG("HashTable");
 
 /* Private function prototypes ---------------------------------------------- */
 static uint32_t _get_prime_max(uint32_t capacity);
-static uint32_t _hash_time33(char *str);
-static uint32_t _hash_bkdr(char *str);
-static uint32_t _hash_elf(char *str);
+static uint32_t _hash_time33(const char *str);
+static uint32_t _hash_bkdr(const char *str);
+static uint32_t _hash_elf(const char *str);
+static int32_t hash_table_index(const hash_table_t * const me, const char *name);
 
 /* Exported functions ------------------------------------------------------- */
 /**
@@ -60,10 +61,10 @@ void hash_table_destroy(hash_table_t * const me)
   * @retval None.
   */
 void hash_table_init(hash_table_t * const me,
-                        hash_table_data_t *data,
+                        hash_table_data_t *table,
                         uint32_t capacity)
 {
-    me->table = data;
+    me->table = table;
     me->capacity = capacity;
 
     for (uint32_t i = 0; i < capacity; i ++)
@@ -84,7 +85,7 @@ void hash_table_init(hash_table_t * const me,
   * @param  data        The data block.
   * @retval See elab_err_t.
   */
-elab_err_t hash_table_add(hash_table_t * const me, char *name, void *data)
+elab_err_t hash_table_add(hash_table_t * const me, const char *name, void *data)
 {
     elab_err_t ret = ELAB_ERR_FULL;
 
@@ -93,11 +94,10 @@ elab_err_t hash_table_add(hash_table_t * const me, char *name, void *data)
     uint32_t hash_bkdr = _hash_bkdr(name);
 
     uint32_t index_start = hash_time33 % me->prime_max;
-    uint32_t index;
     uint32_t times_count = 0;
     for (uint32_t i = 0; i < me->capacity; i ++)
     {
-        index = (index_start + i) % me->capacity;
+        uint32_t index = (index_start + i) % me->capacity;
         if (me->table[index].data == NULL)
         {
             me->table[index].data = data;
@@ -126,7 +126,7 @@ elab_err_t hash_table_add(hash_table_t * const me, char *name, void *data)
   * @param  name        The given key name.
   * @retval See elab_err_t.
   */
-elab_err_t hash_table_remove(hash_table_t * const me, char *name)
+elab_err_t hash_table_remove(hash_table_t * const me, const char *name)
 {
     int32_t ret = hash_table_index(me, name);
 
@@ -145,7 +145,7 @@ elab_err_t hash_table_remove(hash_table_t * const me, char *name)
   * @param  name        The given key name.
   * @retval The data block pointer.
   */
-void *hash_table_get(hash_table_t * const me, char *name)
+void *hash_table_get(hash_table_t * const me, const char *name)
 {
     int32_t ret = hash_table_index(me, name);
 
@@ -159,7 +159,7 @@ void *hash_table_get(hash_table_t * const me, char *name)
   * @param  name        The given key name.
   * @retval True or false.
   */
-bool hash_table_existent(hash_table_t * const me, char *name)
+bool hash_table_existent(hash_table_t * const me, const char *name)
 {
     return hash_table_index(me, name) == ELAB_ERROR ? false : true;
 }
@@ -170,7 +170,7 @@ bool hash_table_existent(hash_table_t * const me, char *name)
   * @param  name        The given key name.
   * @retval The data block pointer.
   */
-int32_t hash_table_index(hash_table_t * const me, char *name)
+static int32_t hash_table_index(const hash_table_t * const me, const char *name)
 {
     int32_t ret = ELAB_ERROR;
     uint32_t hash_time33 = _hash_time33(name);
@@ -178,11 +178,10 @@ int32_t hash_table_index(hash_table_t * const me, char *name)
     uint32_t hash_bkdr = _hash_bkdr(name);
 
     uint32_t index_start = hash_time33 % me->prime_max;
-    uint32_t index;
     uint32_t times_count = 0;
     for (uint32_t i = 0; i < me->capacity; i ++)
     {
-        index = (index_start + i) % me->capacity;
+        uint32_t index = (index_start + i) % me->capacity;
         if (me->table[index].data == NULL)
         {
             continue;
@@ -248,7 +247,7 @@ static uint32_t _get_prime_max(uint32_t capacity)
   * @param  str  The input string.
   * @retval The time33 hash value.
   */
-static uint32_t _hash_time33(char *str)
+static uint32_t _hash_time33(const char *str)
 {  
     uint32_t hash = 5381;
 
@@ -266,10 +265,10 @@ static uint32_t _hash_time33(char *str)
   * @param  str  The input string.
   * @retval The ELF hash value.
   */
-uint32_t _hash_elf(char *str)
+static uint32_t _hash_elf(const char *str)
 {
     uint32_t hash = 0;
-    uint32_t x	= 0;
+    uint32_t x;
  
     while (*str)
     {
@@ -289,7 +288,7 @@ uint32_t _hash_elf(char *str)
   * @param  str  The input string.
   * @retval The BKDR hash value.
   */
-uint32_t _hash_bkdr(char *str)
+static uint32_t _hash_bkdr(const char *str)
 {
     uint32_t seed = 131; /* 31 131 1313 13131 131313 etc.. */
     uint32_t hash = 0;
