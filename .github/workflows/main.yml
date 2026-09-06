@@ -77,16 +77,22 @@ jobs:
         echo "========================"
 
         if [ -s cppcheck-report.xml ]; then
-          total_issues=$(grep -o "<error " cppcheck-report.xml | wc -l)
-          error_count=$(grep -o 'severity="error"' cppcheck-report.xml | wc -l)
+          info_count=$(grep -o 'severity="information"' cppcheck-report.xml | wc -l)
+          style_count=$(grep -o 'severity="style"' cppcheck-report.xml | wc -l)
           warning_count=$(grep -o 'severity="warning"' cppcheck-report.xml | wc -l)
+          error_count=$(grep -o 'severity="error"' cppcheck-report.xml | wc -l)
+          code_issues=$((style_count + warning_count + error_count))
 
-          echo "Total issues found: $total_issues"
-          echo "Errors: $error_count"
+          echo "Total issues (including info): $((info_count + style_count + warning_count + error_count))"
+          echo "Information: $info_count"
+          echo "Style: $style_count"
           echo "Warnings: $warning_count"
+          echo "Errors: $error_count"
 
           if [ $error_count -gt 0 ]; then
             echo "Code quality check failed due to errors"
+          elif [ $code_issues -gt 0 ]; then
+            echo "Style/warning issues found, review recommended"
           else
             echo "No critical issues found"
           fi
@@ -149,15 +155,21 @@ jobs:
         echo "================================"
 
         if [ -f cppcheck-report.xml ] && [ -s cppcheck-report.xml ]; then
-          total_issues=$(grep -o "<error " cppcheck-report.xml | wc -l)
+          info_count=$(grep -o 'severity="information"' cppcheck-report.xml | wc -l)
+          style_count=$(grep -o 'severity="style"' cppcheck-report.xml | wc -l)
+          warning_count=$(grep -o 'severity="warning"' cppcheck-report.xml | wc -l)
           critical_errors=$(grep -o 'severity="error"' cppcheck-report.xml | wc -l)
+          code_issues=$((style_count + warning_count + critical_errors))
 
-          echo "Total issues found: $total_issues"
+          echo "Total (incl. info): $((info_count + style_count + warning_count + critical_errors))"
+          echo "Information: $info_count"
+          echo "Style: $style_count"
+          echo "Warnings: $warning_count"
           echo "Critical errors: $critical_errors"
 
           if [ $critical_errors -gt 0 ]; then
             echo "Code quality check: FAILED"
-          elif [ $total_issues -gt 0 ]; then
+          elif [ $code_issues -gt 0 ]; then
             echo "Code quality check: WARNINGS"
           else
             echo "Code quality check: PASSED"
