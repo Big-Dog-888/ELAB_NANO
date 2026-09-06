@@ -43,7 +43,7 @@ jobs:
         
         # 检查项目中的 C 文件
         echo "Found C files for analysis:"
-        find 7.ELAB_NANO_Unity/elab/ -name "*.c" -not -path "*/3rd/Unity/*" | head -10
+        find ELAB_NANO/elab/ -name "*.c" -not -path "*/3rd/Unity/*" | head -10
     
     - name: MISRA C Static Analysis
       run: |
@@ -60,10 +60,10 @@ jobs:
           --suppress=unusedFunction \
           --std=c99 \
           --platform=unix32 \
-          -I 7.ELAB_NANO_Unity/elab/common/ \
-          -I 7.ELAB_NANO_Unity/elab/3rd/ \
-          7.ELAB_NANO_Unity/elab/common/ \
-          7.ELAB_NANO_Unity/elab/elib/ \
+          -I ELAB_NANO/elab/common/ \
+          -I ELAB_NANO/elab/3rd/ \
+          ELAB_NANO/elab/common/ \
+          ELAB_NANO/elab/elib/ \
           2> cppcheck-report.xml || true
         
         # 尝试运行 MISRA 检查（如果支持）
@@ -77,8 +77,8 @@ jobs:
             --suppress=missingIncludeSystem \
             --suppress=unmatchedSuppression \
             --std=c99 \
-            7.ELAB_NANO_Unity/elab/common/ \
-            7.ELAB_NANO_Unity/elab/elib/ \
+            ELAB_NANO/elab/common/ \
+            ELAB_NANO/elab/elib/ \
             2> misra-report.xml || true
         else
           echo "MISRA addon not available, using standard cppcheck analysis"
@@ -110,17 +110,17 @@ jobs:
     
     - name: Configure CMake for unity_test
       run: |
-        cd 7.ELAB_NANO_Unity/example/unity_test
+        cd ELAB_NANO/unity_test
         cmake -B build -DCMAKE_BUILD_TYPE=Debug
     
     - name: Build unity_test
       run: |
-        cd 7.ELAB_NANO_Unity/example/unity_test
+        cd ELAB_NANO/unity_test
         cmake --build build
     
     - name: Run unity_test
       run: |
-        cd 7.ELAB_NANO_Unity/example/unity_test/build
+        cd ELAB_NANO/unity_test/build
         # 创建 expect 脚本来处理交互式程序并检测测试结果
         cat > run_unity_test.exp << 'EOF'
         #!/usr/bin/expect -f
@@ -264,6 +264,6 @@ jobs:
       with:
         name: unity-test-build
         path: |
-          7.ELAB_NANO_Unity/example/unity_test/build/unity_example
-          7.ELAB_NANO_Unity/example/unity_test/build/compile_commands.json
+          ELAB_NANO/unity_test/build/unity_example
+          ELAB_NANO/unity_test/build/compile_commands.json
         retention-days: 7
