@@ -263,14 +263,21 @@ static int getch(void)
 {
     int ch;
 
-    struct termios tm, tm_old;
-    tcgetattr(STDIN_FILENO, &tm);
-    tm_old = tm;
-    tm.c_lflag &= ~(ICANON | ECHO);
-    tcsetattr(STDIN_FILENO, TCSANOW, &tm);
-    ch = getchar();
-    tcsetattr(STDIN_FILENO, TCSANOW, &tm_old);
+    if (isatty(STDIN_FILENO))
+    {
+        struct termios tm, tm_old;
+        if (tcgetattr(STDIN_FILENO, &tm) == 0)
+        {
+            tm_old = tm;
+            tm.c_lflag &= ~(ICANON | ECHO);
+            tcsetattr(STDIN_FILENO, TCSANOW, &tm);
+            ch = getchar();
+            tcsetattr(STDIN_FILENO, TCSANOW, &tm_old);
+            return ch;
+        }
+    }
 
+    ch = getchar();
     return ch;
 }
 #endif
@@ -332,5 +339,3 @@ void elab_free(void *memory)
         free(memory);
     }
 }
-
-

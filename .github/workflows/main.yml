@@ -9,10 +9,10 @@ on:
 jobs:
   build-unity-test:
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v5
-    
+
     - name: Install dependencies
       run: |
         sudo apt-get update
@@ -24,19 +24,19 @@ jobs:
         [common]
         language=c
         std=c99
-        
+
         [misra]
         enable=all
-        
+
         [suppressions]
         missingIncludeSystem
         unmatchedSuppression
         unusedFunction
         EOF
-        
+
         echo "Found C files for analysis:"
         find elab/ -name "*.c" -not -path "*/3rd/Unity/*" | head -10
-    
+
     - name: MISRA C Static Analysis
       run: |
         echo "Running cppcheck analysis..."
@@ -54,7 +54,7 @@ jobs:
           elab/common/ \
           elab/elib/ \
           2> cppcheck-report.xml || true
-        
+
         echo "Attempting MISRA C analysis..."
         if cppcheck --addon=misra --help > /dev/null 2>&1; then
           echo "MISRA addon available, running MISRA analysis..."
@@ -72,19 +72,19 @@ jobs:
           echo "MISRA addon not available, using standard cppcheck analysis"
           cp cppcheck-report.xml misra-report.xml
         fi
-        
+
         echo "Static Analysis Results:"
         echo "========================"
-        
+
         if [ -s cppcheck-report.xml ]; then
           total_issues=$(grep -o "<error " cppcheck-report.xml | wc -l)
           error_count=$(grep -o 'severity="error"' cppcheck-report.xml | wc -l)
           warning_count=$(grep -o 'severity="warning"' cppcheck-report.xml | wc -l)
-          
+
           echo "Total issues found: $total_issues"
           echo "Errors: $error_count"
           echo "Warnings: $warning_count"
-          
+
           if [ $error_count -gt 0 ]; then
             echo "Code quality check failed due to errors"
           else
@@ -93,32 +93,32 @@ jobs:
         else
           echo "No issues detected"
         fi
-    
+
     - name: Configure CMake for unity_test
       run: |
         cd example/unity_test
         rm -rf build
         cmake -B build -DCMAKE_BUILD_TYPE=Debug
-    
+
     - name: Build unity_test
       run: |
         cd example/unity_test
         cmake --build build
-    
+
     - name: Run unity_test
       run: |
         cd example/unity_test/build
-        
+
         echo "Running unity tests..."
-        echo "unity" | timeout 30 ./unity_example > test_output.txt 2>&1 || true
-        
+        printf 'unity\n' | timeout 30 ./unity_example > test_output.txt 2>&1 || true
+
         echo "========= Test Output ========="
         cat test_output.txt
         echo "==============================="
-        
+
         echo ""
         echo "=== Unity Test Results ==="
-        
+
         if grep -q "FAIL" test_output.txt; then
           echo "Status: FAILED (Some tests failed)"
           echo "Check the detailed output above for failures"
@@ -130,10 +130,10 @@ jobs:
           echo "The output does not contain OK or FAIL"
           exit 1
         fi
-    
+
     - name: Upload Static Analysis Report
       if: always()
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: static-analysis-report
         path: |
@@ -141,20 +141,20 @@ jobs:
           misra-report.xml
           cppcheck.cfg
         retention-days: 14
-        
+
     - name: Code Quality Summary
       if: always()
       run: |
         echo "Code Quality Analysis Summary:"
         echo "================================"
-        
+
         if [ -f cppcheck-report.xml ] && [ -s cppcheck-report.xml ]; then
           total_issues=$(grep -o "<error " cppcheck-report.xml | wc -l)
           critical_errors=$(grep -o 'severity="error"' cppcheck-report.xml | wc -l)
-          
+
           echo "Total issues found: $total_issues"
           echo "Critical errors: $critical_errors"
-          
+
           if [ $critical_errors -gt 0 ]; then
             echo "Code quality check: FAILED"
           elif [ $total_issues -gt 0 ]; then
@@ -165,12 +165,12 @@ jobs:
         else
           echo "Code quality check: PASSED (no issues)"
         fi
-        
+
         echo ""
         echo "Detailed analysis report uploaded as artifact"
-    
+
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: unity-test-build
         path: |
