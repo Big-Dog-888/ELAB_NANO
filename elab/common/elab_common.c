@@ -72,7 +72,7 @@ static void _entry_getch(void *para);
 #endif
 
 #if defined(__linux__)
-static int getch(void);
+static int _getch(void);
 #endif
 /* ==================== [Static Variables] ========================================== */
 
@@ -192,12 +192,40 @@ int16_t elab_debug_uart_receive(void *buffer, uint16_t size)
 #endif
 
 #if defined(__linux__)
+static int _getch(void)
+{
+    int ch;
+
+    if (isatty(STDIN_FILENO))
+    {
+        struct termios tm, tm_old;
+        if (tcgetattr(STDIN_FILENO, &tm) == 0)
+        {
+            tm_old = tm;
+            tm.c_lflag &= ~(ICANON | ECHO);
+            tcsetattr(STDIN_FILENO, TCSANOW, &tm);
+            ch = getchar();
+            tcsetattr(STDIN_FILENO, TCSANOW, &tm_old);
+            return ch;
+        }
+    }
+
+    ch = getchar();
+    return ch;
+}
+
 int16_t elab_debug_uart_receive(void *buffer, uint16_t size)
 {
     assert(size == 1);
 
+    int ch = _getch();
+    if (ch == EOF)
+    {
+        return 0;
+    }
+
     uint8_t *buff = (uint8_t *)buffer;
-    buff[0] = (uint8_t)getch();
+    buff[0] = (uint8_t)ch;
 
     return 1;
 }
@@ -253,33 +281,6 @@ static void _entry_getch(void *para)
 
 #endif
 
-#if defined(__linux__)
-/**
-  * @brief  The original getch function for Linux which can get the input char
-  *         in the terminal.
-  * @retval Key id.
-  */
-static int getch(void)
-{
-    int ch;
-
-    if (isatty(STDIN_FILENO))
-    {
-        struct termios tm, tm_old;
-        if (tcgetattr(STDIN_FILENO, &tm) == 0)
-        {
-            tm_old = tm;
-            tm.c_lflag &= ~(ICANON | ECHO);
-            tcsetattr(STDIN_FILENO, TCSANOW, &tm);
-            ch = getchar();
-            tcsetattr(STDIN_FILENO, TCSANOW, &tm_old);
-            return ch;
-        }
-    }
-
-    ch = getchar();
-    return ch;
-}
 #endif
 
 
