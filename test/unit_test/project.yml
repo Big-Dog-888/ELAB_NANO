@@ -8,6 +8,8 @@
     - '../../elab/elib/'
     - '../../elab/os/mcu_noos/'
   :include:
+    - 'stubs/'
+    - '../../project/stm32f103c8t6/usr/bsp/'
     - '../../elab/common/'
     - '../../elab/elib/'
     - '../../elab/os/'
@@ -20,6 +22,7 @@
     - '.'
     - 'elib/'
     - 'common/'
+    - 'bsp/'
   :test: ''
   :build: 'build/'
   :mocks: 'build/mocks/'
@@ -41,3 +44,10 @@
   :when_no_prototypes: :warn
   :enforce_strict_ordering: false
   :fail_on_unexpected_calls: true
+  :plugins:
+    - :ignore
+    - :callback
+    - :expect_any_args
+    - :array
+    - :ignore_arg
+    - :return_thru_ptr
