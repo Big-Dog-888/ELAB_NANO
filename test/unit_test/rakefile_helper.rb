@@ -271,7 +271,15 @@ module RakefileHelpers
       mock_headers.each do |header|
         require '../cmock/lib/cmock'
         @cmock ||= CMock.new($proj[:cmock])
-        @cmock.setup_mocks([$proj[:paths][:source].first + header.gsub('Mock', '')])
+        real_name = header.gsub(/^Mock/, '').gsub(/_Mock/, '')
+        found = resolve_header(real_name, local_include_dirs)
+        if found.nil?
+          ($proj[:paths][:source] || []).each do |dir|
+            candidate = File.expand_path(dir + real_name)
+            found = candidate if File.exist?(candidate)
+          end
+        end
+        @cmock.setup_mocks([found].compact) if found
       end
 
       all_headers = collect_all_headers(direct_headers, include_dirs)
@@ -281,6 +289,17 @@ module RakefileHelpers
 
       obj_list = []
       compiled_sources = {}
+
+      mock_src_dir = $proj[:cmock][:mock_path] rescue nil
+      mock_src_dir ||= 'build/mocks'
+      Dir.glob("#{mock_src_dir}/Mock*.c").each do |mock_c|
+        next unless File.exist?(mock_c)
+        key = File.expand_path(mock_c)
+        next if compiled_sources[key]
+        obj_list << compile(mock_c, ['TEST'])
+        compiled_sources[key] = true
+      end
+
       all_sources.each do |src_file|
         next unless File.exist?(src_file)
         key = File.expand_path(src_file)
