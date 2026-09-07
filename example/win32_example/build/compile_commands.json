@@ -7,6 +7,30 @@
 },
 {
   "directory": "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build",
+  "command": "E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe  @CMakeFiles/Win_example.dir/includes_C.rsp -g -o CMakeFiles\\Win_example.dir\\test_demo\\test_demo.c.obj -c C:\\Users\\BigDog\\Desktop\\File\\ELAB_NANO\\example\\win32_example\\test_demo\\test_demo.c",
+  "file": "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/test_demo/test_demo.c",
+  "output": "CMakeFiles/Win_example.dir/test_demo/test_demo.c.obj"
+},
+{
+  "directory": "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build",
+  "command": "E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe  @CMakeFiles/Win_example.dir/includes_C.rsp -g -o CMakeFiles\\Win_example.dir\\elib\\test_hash_table.c.obj -c C:\\Users\\BigDog\\Desktop\\File\\ELAB_NANO\\example\\win32_example\\elib\\test_hash_table.c",
+  "file": "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/elib/test_hash_table.c",
+  "output": "CMakeFiles/Win_example.dir/elib/test_hash_table.c.obj"
+},
+{
+  "directory": "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build",
+  "command": "E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe  @CMakeFiles/Win_example.dir/includes_C.rsp -g -o CMakeFiles\\Win_example.dir\\elib\\test_queue.c.obj -c C:\\Users\\BigDog\\Desktop\\File\\ELAB_NANO\\example\\win32_example\\elib\\test_queue.c",
+  "file": "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/elib/test_queue.c",
+  "output": "CMakeFiles/Win_example.dir/elib/test_queue.c.obj"
+},
+{
+  "directory": "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build",
+  "command": "E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe  @CMakeFiles/Win_example.dir/includes_C.rsp -g -o CMakeFiles\\Win_example.dir\\os\\test_os_timer.c.obj -c C:\\Users\\BigDog\\Desktop\\File\\ELAB_NANO\\example\\win32_example\\os\\test_os_timer.c",
+  "file": "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/os/test_os_timer.c",
+  "output": "CMakeFiles/Win_example.dir/os/test_os_timer.c.obj"
+},
+{
+  "directory": "C:/Users/BigDog/Desktop/File/ELAB_NANO/example/win32_example/build",
   "command": "E:\\qpc\\qp\\qtools\\mingw32\\bin\\gcc.exe  @CMakeFiles/Win_example.dir/includes_C.rsp -g -o CMakeFiles\\Win_example.dir\\C_\\Users\\BigDog\\Desktop\\File\\ELAB_NANO\\elab\\common\\elab_log.c.obj -c C:\\Users\\BigDog\\Desktop\\File\\ELAB_NANO\\elab\\common\\elab_log.c",
   "file": "C:/Users/BigDog/Desktop/File/ELAB_NANO/elab/common/elab_log.c",
   "output": "CMakeFiles/Win_example.dir/C_/Users/BigDog/Desktop/File/ELAB_NANO/elab/common/elab_log.c.obj"

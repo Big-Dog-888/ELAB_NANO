@@ -909,6 +909,102 @@ C_/Users/BigDog/Desktop/File/ELAB_NANO/elab/os/win32/cmsis_os_cb.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/C_/Users/BigDog/Desktop/File/ELAB_NANO/elab/os/win32/cmsis_os_cb.c.s
 .PHONY : C_/Users/BigDog/Desktop/File/ELAB_NANO/elab/os/win32/cmsis_os_cb.c.s
 
+elib/test_hash_table.obj: elib/test_hash_table.c.obj
+.PHONY : elib/test_hash_table.obj
+
+# target to build an object file
+elib/test_hash_table.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/elib/test_hash_table.c.obj
+.PHONY : elib/test_hash_table.c.obj
+
+elib/test_hash_table.i: elib/test_hash_table.c.i
+.PHONY : elib/test_hash_table.i
+
+# target to preprocess a source file
+elib/test_hash_table.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/elib/test_hash_table.c.i
+.PHONY : elib/test_hash_table.c.i
+
+elib/test_hash_table.s: elib/test_hash_table.c.s
+.PHONY : elib/test_hash_table.s
+
+# target to generate assembly for a file
+elib/test_hash_table.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/elib/test_hash_table.c.s
+.PHONY : elib/test_hash_table.c.s
+
+elib/test_queue.obj: elib/test_queue.c.obj
+.PHONY : elib/test_queue.obj
+
+# target to build an object file
+elib/test_queue.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/elib/test_queue.c.obj
+.PHONY : elib/test_queue.c.obj
+
+elib/test_queue.i: elib/test_queue.c.i
+.PHONY : elib/test_queue.i
+
+# target to preprocess a source file
+elib/test_queue.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/elib/test_queue.c.i
+.PHONY : elib/test_queue.c.i
+
+elib/test_queue.s: elib/test_queue.c.s
+.PHONY : elib/test_queue.s
+
+# target to generate assembly for a file
+elib/test_queue.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/elib/test_queue.c.s
+.PHONY : elib/test_queue.c.s
+
+os/test_os_timer.obj: os/test_os_timer.c.obj
+.PHONY : os/test_os_timer.obj
+
+# target to build an object file
+os/test_os_timer.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/os/test_os_timer.c.obj
+.PHONY : os/test_os_timer.c.obj
+
+os/test_os_timer.i: os/test_os_timer.c.i
+.PHONY : os/test_os_timer.i
+
+# target to preprocess a source file
+os/test_os_timer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/os/test_os_timer.c.i
+.PHONY : os/test_os_timer.c.i
+
+os/test_os_timer.s: os/test_os_timer.c.s
+.PHONY : os/test_os_timer.s
+
+# target to generate assembly for a file
+os/test_os_timer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/os/test_os_timer.c.s
+.PHONY : os/test_os_timer.c.s
+
+test_demo/test_demo.obj: test_demo/test_demo.c.obj
+.PHONY : test_demo/test_demo.obj
+
+# target to build an object file
+test_demo/test_demo.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/test_demo/test_demo.c.obj
+.PHONY : test_demo/test_demo.c.obj
+
+test_demo/test_demo.i: test_demo/test_demo.c.i
+.PHONY : test_demo/test_demo.i
+
+# target to preprocess a source file
+test_demo/test_demo.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/test_demo/test_demo.c.i
+.PHONY : test_demo/test_demo.c.i
+
+test_demo/test_demo.s: test_demo/test_demo.c.s
+.PHONY : test_demo/test_demo.s
+
+# target to generate assembly for a file
+test_demo/test_demo.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Win_example.dir\build.make CMakeFiles/Win_example.dir/test_demo/test_demo.c.s
+.PHONY : test_demo/test_demo.c.s
+
 win_example.obj: win_example.c.obj
 .PHONY : win_example.obj
 
@@ -1039,6 +1135,18 @@ help:
 	@echo ... C_/Users/BigDog/Desktop/File/ELAB_NANO/elab/os/win32/cmsis_os_cb.obj
 	@echo ... C_/Users/BigDog/Desktop/File/ELAB_NANO/elab/os/win32/cmsis_os_cb.i
 	@echo ... C_/Users/BigDog/Desktop/File/ELAB_NANO/elab/os/win32/cmsis_os_cb.s
+	@echo ... elib/test_hash_table.obj
+	@echo ... elib/test_hash_table.i
+	@echo ... elib/test_hash_table.s
+	@echo ... elib/test_queue.obj
+	@echo ... elib/test_queue.i
+	@echo ... elib/test_queue.s
+	@echo ... os/test_os_timer.obj
+	@echo ... os/test_os_timer.i
+	@echo ... os/test_os_timer.s
+	@echo ... test_demo/test_demo.obj
+	@echo ... test_demo/test_demo.i
+	@echo ... test_demo/test_demo.s
 	@echo ... win_example.obj
 	@echo ... win_example.i
 	@echo ... win_example.s
