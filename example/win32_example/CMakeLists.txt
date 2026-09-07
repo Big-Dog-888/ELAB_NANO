@@ -14,6 +14,10 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../../elab ${CMAKE_CURRENT_BINARY_DIR
 
 set(WIN_DEMO_SRC
     win_example.c
+    test_demo/test_demo.c
+    elib/test_hash_table.c
+    elib/test_queue.c
+    os/test_os_timer.c
 )
 
 
@@ -33,5 +37,3 @@ target_include_directories(${__PROJ_NAME__} PRIVATE
 
 message(STATUS "CMAKE_SYSTEM_NAME=${CMAKE_SYSTEM_NAME}")
 message(STATUS "C Compiler: ${CMAKE_C_COMPILER}")
-
-

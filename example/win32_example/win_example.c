@@ -6,6 +6,7 @@
 #include "../../elab/common/elab_assert.h"
 #include "../../elab/os/cmsis_os.h"
 #include "../../elab/3rd/Shell/shell.h"
+#include "../../elab/3rd/Unity/unity_fixture.h"
 #include "elab_config.h"
 
 
@@ -158,7 +159,6 @@ POLL_EXPORT(timer_poll, 300);
 void timer_callback(void *param)
 {
   (void)param;
-  elog_debug("os_timer_test");
 }
 static const osTimerAttr_t timer_attr_test =
 {
@@ -170,9 +170,18 @@ static const osTimerAttr_t timer_attr_test =
 void os_timer_init(void)
 {
 osTimerId_t timer=osTimerNew(timer_callback,osTimerPeriodic,NULL,&timer_attr_test);
-osTimerStart(timer,1000);
+osTimerStart(timer,10000);
 }
 INIT_EXPORT(os_timer_init, EXPORT_APP);
+
+static int unity_export(int argc, char *argv[])
+{
+    return UnityMain(argc, (const char **)argv, elab_unit_test);
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0) | SHELL_CMD_TYPE(SHELL_TYPE_CMD_MAIN),
+                    unity,
+                    unity_export,
+                    Run all unit tests);
 
 
 int main() {
