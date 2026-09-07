@@ -1,0 +1,43 @@
+:project:
+  :build_root: 'build/'
+  :colour: true
+
+:paths:
+  :source:
+    - '../../elab/common/'
+    - '../../elab/elib/'
+    - '../../elab/os/mcu_noos/'
+  :include:
+    - '../../elab/common/'
+    - '../../elab/elib/'
+    - '../../elab/os/'
+    - '../../elab/os/mcu_noos/'
+    - '../../elab/3rd/Unity/'
+    - '../../example/unity_test/'
+    - '../cmock/src/'
+    - '../cmock/vendor/unity/src/'
+    - 'build/mocks/'
+    - '.'
+    - 'elib/'
+    - 'common/'
+  :test: ''
+  :build: 'build/'
+  :mocks: 'build/mocks/'
+
+:extension:
+  :object: '.o'
+  :executable: '.exe'
+
+:defines:
+  :test:
+    - UNITY_SUPPORT_64
+    - UNITY_INCLUDE_DOUBLE
+    - UNITY_SUPPORT_TEST_CASES
+    - TEST
+
+:cmock:
+  :mock_prefix: 'Mock'
+  :mock_path: 'build/mocks'
+  :when_no_prototypes: :warn
+  :enforce_strict_ordering: false
+  :fail_on_unexpected_calls: true
