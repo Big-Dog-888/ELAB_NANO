@@ -39,6 +39,9 @@ set(PRO_SRC
     core/stm32f1xx_it.c
     core/stm32f1xx_hal_msp.c
     bsp/bsp.c
+    bsp/led.c
+    bsp/i2c.c
+    bsp/oled.c
     bsp/debug_uart.c
     bsp/syscalls.c
     bsp/sysmem.c

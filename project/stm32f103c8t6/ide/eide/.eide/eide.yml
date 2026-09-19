@@ -26,6 +26,8 @@ virtualFolder:
         - path: ../../usr/bsp/led.c
         - path: ../../usr/bsp/syscalls.c
         - path: ../../usr/bsp/sysmem.c
+        - path: ../../usr/bsp/i2c.c
+        - path: ../../usr/bsp/oled.c
       folders: []
     - name: stm32f103_hal
       files:
@@ -39,6 +41,9 @@ virtualFolder:
         - path: ../../../../mcu/stm32f103c8t6/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_usart.c
         - path: ../../../../mcu/stm32f103c8t6/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_conf.h
         - path: ../../../../mcu/stm32f103c8t6/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
+        - path: ../../../../mcu/stm32f103c8t6/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c
+        - path: ../../../../mcu/stm32f103c8t6/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c
+        - path: ../../../../mcu/stm32f103c8t6/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c
       folders: []
     - name: elab
       files: []
