@@ -28,6 +28,7 @@ virtualFolder:
         - path: ../../usr/bsp/sysmem.c
         - path: ../../usr/bsp/i2c.c
         - path: ../../usr/bsp/oled.c
+        - path: ../../usr/bsp/oled_font.h
       folders: []
     - name: stm32f103_hal
       files:

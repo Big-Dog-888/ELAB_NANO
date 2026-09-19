@@ -2,7 +2,8 @@
 #include "i2c.h"                               /* 包含 I2C 模块头文件，使用 I2C1_Send 接口向 OLED 发数据 */
 #include "../../../../elab/common/elab_export.h" /* 引入 ELAB 框架的导出宏（INIT_EXPORT、POLL_EXPORT） */
 #include "../../../../elab/common/elab_log.h"     /* 引入 ELAB 日志模块，提供 elog_info / elog_error */
-
+#include "oled_font.h"                         /* 包含 OLED 字体头文件，获取 Font8x16_Digits 数组 */
+#include <string.h>
 ELAB_TAG("OLED");                              /* 给当前编译单元打标签 "OLED"，用于日志过滤 */
 /* ==================== 1. OLED 私有收发封装 ==================== */
 
@@ -76,9 +77,16 @@ INIT_EXPORT(OLED_Init, EXPORT_DEVICE);          /* 将 OLED_Init 注册到 ELAB 
 static void OLED_WritePage(uint8_t page, uint8_t *buf) /* 写一页（8像素高 x 128列）显存，static 私有函数 */
 {
     OLED_WriteCmd(0xB0 | (page & 0x07));      /* 设置页地址：0xB0~0xB7 对应 page0~page7，与 0x07 与运算保证范围 */
-    OLED_WriteCmd(0x00);                      /* 设置列地址低 4 位为 0（列从 0 开始） */
     OLED_WriteCmd(0x10);                      /* 设置列地址高 4 位为 0（0x10~0x1F 对应列高4位） */
+    OLED_WriteCmd(0x00);                      /* 设置列地址低 4 位为 0（列从 0 开始） */
     OLED_WriteData(buf, OLED_WIDTH);          /* 发送 128 字节显存数据到当前页 */
+}
+
+void OLED_SetCursor(uint8_t page, uint8_t col)  /* 设置显存写入坐标：page=页号(0~7)，col=列号(0~127) */
+{
+    OLED_WriteCmd(0xB0 | (page & 0x07));        /* 页地址命令：0xB0~0xB7，与 0x07 与运算防止越界 */
+    OLED_WriteCmd(0x10 | ((col >> 4) & 0x0F));  /* 列地址高 4 位：0x10~0x1F */
+    OLED_WriteCmd(0x00 | (col & 0x0F));         /* 列地址低 4 位：0x00~0x0F */
 }
 
 void OLED_Clear(void)                          /* 清屏：将所有页的显存写 0x00，全部熄灭 */
@@ -97,6 +105,61 @@ void OLED_FillAll(uint8_t value)               /* 全屏填充指定值：0xFF �
     for (int p = 0; p < OLED_PAGES; p++)       /* 遍历所有 8 页 */
     {
         OLED_WritePage(p, buf);                /* 每页都写入相同的填充值 */
+    }
+}
+
+// 显示一个 8x16 字符
+// x: 列坐标（0~120，因为一个字符宽 8）
+// y: 行坐标（0~6，因为一个字符高 16，占 2 页）
+// pFont: 指向该字符 16 字节字模的指针
+void OLED_ShowChar(uint8_t x, uint8_t y, const unsigned char *pFont) /* 在 (x,y) 处显示一个 8x16 字符：x=列号(0~120)，y=行号(0~3) */
+{
+    if(NULL == pFont || x > OLED_X_8_MAX || y > OLED_Y_MAX) 
+    {
+        elog_error("OLED_ShowChar: x or y out of range || pFont isis NULL or empty");
+        return;
+    }
+    uint8_t page = y * 2;                       /* 8x16 字符占 2 个页（每页 8 像素高） */
+
+    OLED_SetCursor(page, x);                    /* 定位到上半页起始位置 */
+    OLED_WriteData((uint8_t *)pFont, 8);        /* 上半页 8 字节一次 I2C 发出（字模前 8 字节） */
+
+    OLED_SetCursor(page + 1, x);                /* 定位到下半页起始位置 */
+    OLED_WriteData((uint8_t *)(pFont + 8), 8);  /* 下半页 8 字节一次 I2C 发出（字模后 8 字节） */
+}
+
+void OLED_ShowNum(uint8_t x, uint8_t y, uint32_t num, uint8_t len) /* 在 (x,y) 处显示 num，len=显示位数（不足前补 0） */
+{
+    if (len == 0 || len > 10 || x > OLED_X_8_MAX - 8 * len || y > OLED_Y_MAX)          /* 防御性检查：len 范围 1~10，防止 uint32 溢出 */
+    {
+        elog_error("OLED_ShowNum: x or y out of range || len out of range.");
+        return;
+    }
+    
+    uint32_t divisor = 1;                       /* 最高位权重，如 len=5 时 divisor=10000 */
+    for (uint8_t i = 1; i < len; i++) divisor *= 10; /* 纯整数算 10^(len-1)，不用 pow() */
+
+    for (uint8_t i = 0; i < len; i++)           /* 逐位提取并显示 */
+    {
+        uint8_t digit = (num / divisor) % 10;   /* 取当前最高位数字 */
+        OLED_ShowChar(x + i * 8, y, Font8x16_ASCII[digit + '0']); /* 画在 x + i*8 列处 */
+        divisor /= 10;                          /* 权重右移一位 */
+    }
+}
+
+void OLED_ShowStr(uint8_t x, uint8_t y, char* str) /* 在 (x,y) 处显示字符串 str */
+{
+    if(NULL == str || x > OLED_X_8_MAX - strlen(str) * 8 || y > OLED_Y_MAX)
+    {
+        elog_error("OLED_ShowStr: x or y out of range || str is NULL or empty.");
+        return;
+    }
+
+    uint8_t len = strlen(str);
+
+    for (uint8_t i = 0; i < len; i++)           /* 逐位提取并显示 */
+    {
+        OLED_ShowChar(x + i * 8, y, Font8x16_ASCII[str[i]]); /* 画在 x + i*8 列处 */
     }
 }
 
@@ -149,4 +212,19 @@ void OLED_TestPoll(void)                       /* OLED 测试轮询函数，每�
             break;                             /* 跳出 switch */
     }
 }
-POLL_EXPORT(OLED_TestPoll, 1000);              /* 将 OLED_TestPoll 注册为 poll 任务，每 1000ms(1秒) 执行一次 */
+//POLL_EXPORT(OLED_TestPoll, 1000);              /* 将 OLED_TestPoll 注册为 poll 任务，每 1000ms(1秒) 执行一次 */
+
+static uint32_t num_counter = 0;                /* 数字计数器，每次 poll 自增 */
+
+void OLED_NumTestPoll(void)                     /* OLED 数字显示测试：第一行固定值，第二行递增计数，第三行固定值 */
+{
+    OLED_Clear();                               /* 先清屏，保证每次显示干净 */
+
+    OLED_ShowNum(0,  0, 12345,   5);            /* 第 0 行(页0-1)，左对齐显示 5 位固定值 12345 */
+    OLED_ShowStr(0,  1, "OLED Test");
+    OLED_ShowNum(0,  2, num_counter, 6);        /* 第 2 行(页4-5)，左对齐显示 6 位递增计数器 */
+    OLED_ShowNum(0,  3, 99999,    5);           /* 第 3 行(页6-7，屏幕最底)，显示边界值 99999 */
+
+    num_counter++;                              /* 计数 +1，下一次 poll 显示新值 */
+}
+POLL_EXPORT(OLED_NumTestPoll, 500);             /* 每 500ms 刷新一次，数字计数器会快速递增便于观察 */
