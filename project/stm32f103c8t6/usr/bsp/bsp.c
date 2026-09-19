@@ -1,5 +1,6 @@
 #include "stm32f1xx_hal.h"
 #include "debug_uart.h"
+#include "uart.h"
 #include "../../../../elab/common/elab_export.h"
 #include "../../../../elab/common/elab_log.h"
 #include "../../../../elab/3rd/Shell/shell.h"
