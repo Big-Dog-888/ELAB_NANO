@@ -69,6 +69,9 @@ static int esp8266_tcp_send_raw(const uint8_t *data, uint16_t len, uint32_t time
 {
     int16_t n;
 
+    elog_info("CIPSEND: sending %d bytes...", len);
+    esp8266_dump_hex(data, len);
+
     uart_buffer_clear();
     snprintf(esp8266_cmd, sizeof(esp8266_cmd), "AT+CIPSEND=%d", len);
     send_to_esp8266_cmd((uint8_t *)esp8266_cmd, strlen(esp8266_cmd));
@@ -79,6 +82,9 @@ static int esp8266_tcp_send_raw(const uint8_t *data, uint16_t len, uint32_t time
     n = uart_receive_timeout(esp8266_data, sizeof(esp8266_data) - 1,
                              timeout_ms, 100);
     esp8266_data[n] = '\0';
+
+    elog_info("CIPSEND response (%d bytes): %s", n, esp8266_data);
+    esp8266_dump_hex(esp8266_data, n);
 
     if (n <= 0)
         return -1;
