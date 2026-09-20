@@ -7,10 +7,31 @@
 ELAB_TAG("OLED");                              /* 给当前编译单元打标签 "OLED"，用于日志过滤 */
 /* ==================== 1. OLED 私有收发封装 ==================== */
 
+static HAL_StatusTypeDef oled_send_with_retry(uint8_t ctrl, const uint8_t *data, uint16_t len)
+{
+    uint8_t buf[129];
+    buf[0] = ctrl;
+    if (len > 128) len = 128;
+    memcpy(buf + 1, data, len);
+
+    for (int attempt = 0; attempt < 3; attempt++)
+    {
+        HAL_StatusTypeDef ret = I2C1_Send(OLED_ADDR, buf, len + 1, 50);
+        if (ret == HAL_OK) return HAL_OK;
+
+        if (__HAL_I2C_GET_FLAG(&hi2c1, I2C_FLAG_BUSY) != RESET || ret == HAL_BUSY)
+        {
+            elog_warn("I2C BUSY detected (attempt %d), unlocking...", attempt + 1);
+            I2C1_BusUnlock();
+        }
+        HAL_Delay(2);
+    }
+    return HAL_ERROR;
+}
+
 void OLED_WriteCmd(uint8_t cmd)                /* 向 OLED 发送一条命令（SSD1306 通过 I2C 控制字节区分命令和数据） */
 {
-    uint8_t buf[2] = {0x00, cmd};              /* 构造发送缓冲区：[控制字节, 命令字节]，0x00 表示后续是命令 */
-    HAL_StatusTypeDef ret = I2C1_Send(OLED_ADDR, buf, 2, 100); /* 通过 I2C1 发送，从机地址 OLED_ADDR(0x3C)，2字节，超时100ms */
+    HAL_StatusTypeDef ret = oled_send_with_retry(0x00, &cmd, 1);
     if (ret != HAL_OK)                         /* 如果发送返回值不是 HAL_OK，说明 I2C 通信失败 */
     {
         elog_error("OLED_WriteCmd 0x%02X FAILED! I2C ret=%d", cmd, ret); /* 打印失败的命令字节和 HAL 返回值，便于排查 */
@@ -19,17 +40,11 @@ void OLED_WriteCmd(uint8_t cmd)                /* 向 OLED 发送一条命令（
 
 void OLED_WriteData(uint8_t *data, uint16_t len) /* 向 OLED 发送显示数据（显存内容），自动分片防止 I2C 缓冲区溢出 */
 {
-    uint8_t buf[129];                          /* 发送缓冲区：1字节控制字 + 最多128字节数据，SSD1306 一页正好128列 */
-    buf[0] = 0x40;                             /* 控制字节 0x40 表示后续是显示数据（D/C 位 = 1） */
     uint16_t sent = 0;                         /* 已发送字节计数，用于循环终止 */
     while (sent < len)                         /* 循环直到所有数据都发送完毕 */
     {
         uint16_t chunk = (len - sent > 128) ? 128 : (len - sent); /* 本帧发送多少字节：剩余超过128就发128，否则发剩下的 */
-        for (uint16_t i = 0; i < chunk; i++)   /* 将本帧数据拷贝到 buf[1..chunk] 位置 */
-        {
-            buf[i + 1] = data[sent + i];       /* buf[0] 已放控制字 0x40，数据从 buf[1] 开始填 */
-        }
-        HAL_StatusTypeDef ret = I2C1_Send(OLED_ADDR, buf, chunk + 1, 100); /* 发送本帧：控制字 + chunk 字节数据，共 chunk+1 字节 */
+        HAL_StatusTypeDef ret = oled_send_with_retry(0x40, data + sent, chunk);
         if (ret != HAL_OK)                     /* 如果这一帧发送失败 */
         {
             elog_error("OLED_WriteData FAILED! I2C ret=%d", ret); /* 打印错误日志，注意不 return 以保证后续帧继续尝试 */
@@ -42,6 +57,12 @@ void OLED_WriteData(uint8_t *data, uint16_t len) /* 向 OLED 发送显示数据�
 
 void OLED_Init(void)                           /* SSD1306 初始化序列，按数据手册顺序发送 20 多条命令 */
 {
+    if (__HAL_I2C_GET_FLAG(&hi2c1, I2C_FLAG_BUSY) != RESET)
+    {
+        elog_warn("I2C hardware BUSY flag set! Unlocking...");
+        I2C1_BusUnlock();
+    }
+
     OLED_WriteCmd(0xAE);   /* display off：先关闭显示再配置，避免配置过程花屏 */
     OLED_WriteCmd(0xD5);   /* set display clock divide ratio：设置时钟分频命令 */
     OLED_WriteCmd(0x80);   /* osc frequency：分频系数 0x80 → 分频 = 1，振荡器频率默认 */

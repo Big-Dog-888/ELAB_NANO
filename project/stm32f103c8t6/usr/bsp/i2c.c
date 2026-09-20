@@ -52,6 +52,52 @@ HAL_StatusTypeDef I2C1_Recv(uint16_t DevAddress, uint8_t *pData, uint16_t Size, 
     return HAL_I2C_Master_Receive(&hi2c1, (uint16_t)(DevAddress << 1), pData, Size, Timeout);   /* 7位地址左移1位后调用HAL阻塞接收 */
 }
 
+void I2C1_BusUnlock(void)
+{
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+    __HAL_RCC_I2C1_CLK_DISABLE();
+    __HAL_RCC_I2C1_CLK_ENABLE();
+
+    GPIO_InitStruct.Pin   = GPIO_PIN_6 | GPIO_PIN_7;
+    GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_OD;
+    GPIO_InitStruct.Pull  = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6 | GPIO_PIN_7, GPIO_PIN_SET);
+    HAL_Delay(1);
+
+    if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_RESET)
+    {
+        elog_warn("I2C SDA stuck LOW! Sending 9 clock pulses...");
+
+        for (int i = 0; i < 9; i++)
+        {
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_RESET);
+            HAL_Delay(1);
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
+            HAL_Delay(1);
+
+            if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7) == GPIO_PIN_SET)
+            {
+                elog_info("SDA released after %d clocks", i + 1);
+                break;
+            }
+        }
+    }
+
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
+    HAL_Delay(1);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
+    HAL_Delay(1);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
+    HAL_Delay(1);
+
+    HAL_I2C_Init(&hi2c1);
+    elog_info("I2C bus unlock done, State=0x%02X", hi2c1.State);
+}
+
 static void I2C1_MspDeInit(void)              /* I2C1 的反初始化，复位 GPIO 和关闭时钟 */
 {
     __HAL_RCC_I2C1_CLK_DISABLE();             /* 关闭 I2C1 时钟，降低功耗 */

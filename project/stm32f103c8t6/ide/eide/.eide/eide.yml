@@ -29,7 +29,8 @@ virtualFolder:
         - path: ../../usr/bsp/i2c.c
         - path: ../../usr/bsp/oled.c
         - path: ../../usr/bsp/oled_font.h
-        - path: ../../usr/bsp/uart.c
+        - path: ../../usr/bsp/esp8266.c
+        - path: ../../usr/bsp/esp8266.h
       folders: []
     - name: stm32f103_hal
       files:

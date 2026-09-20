@@ -12,15 +12,12 @@ void elab_debug_uart_buffer_clear(void);
 
 extern UART_HandleTypeDef huart3;
 
-#define USART3_CLK_ENABLE()              __HAL_RCC_USART3_CLK_ENABLE()
-#define USART3_GPIO_CLK_ENABLE()         __HAL_RCC_GPIOB_CLK_ENABLE()
-#define USART3_TX_PIN                    GPIO_PIN_10
-#define USART3_RX_PIN                    GPIO_PIN_11
-#define USART3_PORT                      GPIOB
 
 void uart_init(uint32_t baudrate);
 void uart_buffer_clear(void);
 int16_t uart_receive(void *buffer, uint16_t size);
+int16_t uart_receive_timeout(void *buffer, uint16_t size,
+                             uint32_t timeout_ms, uint32_t silence_ms);
 int16_t uart_send(void *buffer, uint16_t size);
 
 #endif

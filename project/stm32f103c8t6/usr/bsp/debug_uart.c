@@ -15,11 +15,17 @@ ELAB_TAG("UART");
 #define USARTx_PORT                      GPIOA
 #define USARTx_IRQn                      USART1_IRQn
 
+
+#define USART3_CLK_ENABLE()              __HAL_RCC_USART3_CLK_ENABLE()
+#define USART3_GPIO_CLK_ENABLE()         __HAL_RCC_GPIOB_CLK_ENABLE()
+#define USART3_TX_PIN                    GPIO_PIN_10
+#define USART3_RX_PIN                    GPIO_PIN_11
+#define USART3_PORT                      GPIOB
 #define ELAB_DEBUG_UART_BUFFER_TX               (1024)
-#define ELAB_DEBUG_UART_BUFFER_RX               (16)
+#define ELAB_DEBUG_UART_BUFFER_RX               (256)
 
 #define UART_BUFFER_TX               (1024)
-#define UART_BUFFER_RX               (16)
+#define UART_BUFFER_RX               (256)
 
 #define UART_DEFAULT_BAUDRATE   115200       /* 默认波特率：集中一处，改这里就行 */
 
@@ -81,7 +87,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
         GPIO_InitStruct.Pin = USART3_TX_PIN;
         GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
         GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-        HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+        HAL_GPIO_Init(USART3_PORT, &GPIO_InitStruct);
 
         GPIO_InitStruct.Pin = USART3_RX_PIN;
         GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -260,7 +266,7 @@ void uart_init(uint32_t baudrate)
     huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
     huart3.Init.OverSampling = UART_OVERSAMPLING_16;
     HAL_UART_Init(&huart3);
-    HAL_UART_Receive_IT(&huart3, &byte_recv, 1);
+    HAL_UART_Receive_IT(&huart3, &uart3_byte_recv, 1);
 
     elib_queue_init(&uart3_queue_rx, uart3_buffer_rx, UART_BUFFER_RX);
     elib_queue_init(&uart3_queue_tx, uart3_buffer_tx, UART_BUFFER_TX);
@@ -312,6 +318,46 @@ int16_t uart_receive(void *buffer, uint16_t size)
 }
 
 /**
+  * @brief  Receive a complete UART frame.
+  *         Returns when: whole timeout expired, or RX queue has been
+  *         silent (no new bytes) for `silence_ms` after receiving
+  *         the first byte — so both short and long replies are read fully.
+  * @param  buffer      destination pointer
+  * @param  size        max bytes to read
+  * @param  timeout_ms   total wait budget for the whole receive (ms)
+  * @param  silence_ms  idle period after which a frame is considered done (ms)
+  * @retval actual bytes received (0 on pure timeout / empty)
+  */
+int16_t uart_receive_timeout(void *buffer, uint16_t size,
+                             uint32_t timeout_ms, uint32_t silence_ms)
+{
+    uint32_t start = HAL_GetTick();
+    uint32_t last_rx = start;
+    uint8_t  got_any = 0;
+
+    while (1)
+    {
+        uint32_t now = HAL_GetTick();
+
+        if (!elib_queue_is_empty(&uart3_queue_rx))
+        {
+            got_any  = 1;
+            last_rx  = now;
+        }
+
+        if ((now - start) >= timeout_ms)
+            break;
+
+        if (got_any && ((now - last_rx) >= silence_ms))
+            break;
+
+        HAL_Delay(2);
+    }
+
+    return uart_receive(buffer, size);
+}
+
+/**
   * @brief  Clear buffer of the elab debug uart.
   * @param  buffer  this pointer
   * @retval Free size.
@@ -350,7 +396,7 @@ void uart_test(void)
     elog_info("UART test done.");
 
 }
-POLL_EXPORT(uart_test, 1000);             /* 每 1000ms 刷新一次，数字计数器会快速递增便于观察 */
+// POLL_EXPORT(uart_test, 1000);             /* 每 1000ms 刷新一次，数字计数器会快速递增便于观察 */
 
 
 #ifdef __ARMCC_VERSION
